@@ -1,5 +1,9 @@
 import {BoxBackendUi} from "./ui/box_backend_ui.js";
 import {TopPanel} from "./ui/top_panel.js";
+import * as tf from '@tensorflow/tfjs';
+
+// Test if it's working
+console.log(tf.version.tfjs);
 
 const ori_state = [0.0, 0.0, 0.0, 3.0, 1.5]
 const ini_state = [0.6, -0.6, 0.0, 3.0, 1.5]

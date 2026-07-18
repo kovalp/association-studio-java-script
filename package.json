@@ -1,7 +1,7 @@
 {
   "name": "association-studio-java-script",
   "version": "1.0.0",
-  "description": "",
+  "description": "Association metrics in multi-target tracking: calculate and compare.",
   "main": "main.js",
   "scripts": {
     "dev": "vite",
