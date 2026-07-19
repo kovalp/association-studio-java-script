@@ -2,11 +2,16 @@
 class TopPanel{
     constructor(){
         this.reset_btn = document.getElementById("reset-btn");
+        this.score_val = document.getElementById("score-val");
         this.inp_x = document.getElementById("inp-x");
         this.inp_y = document.getElementById("inp-y");
         this.inp_yaw = document.getElementById("inp-yaw");
         this.inp_len = document.getElementById("inp-len");
         this.inp_wdt = document.getElementById("inp-wdt");
+    }
+
+    set_score(val){
+        this.score_val.textContent = val.toFixed(5);
     }
 
     set_state(xy_yaw_lw){

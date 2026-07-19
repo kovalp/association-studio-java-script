@@ -51,6 +51,7 @@ body {
     padding: 10px;
     margin-left: auto;
     font-size: 14px;
+    color: #f00;
 }
 
 #stage {
@@ -68,4 +69,37 @@ canvas {
 }
 #stage-bg {
   z-index: 1;
+}
+
+.tooltip-container {
+    position: relative;
+    display: inline-block;
+    cursor: help;
+}
+
+.tooltip-text {
+    visibility: hidden;
+    background-color: black;
+    color: white;
+    text-align: center;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    white-space: nowrap;
+    position: absolute;
+    bottom: 120%;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.tool-label:hover .tooltip-text {
+    visibility: visible;
+    opacity: 1;
+}
+
+.tool-panel input:hover .tooltip-text{
+    visibility: visible;
+    opacity: 1;
 }

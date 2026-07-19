@@ -14,16 +14,13 @@ class AxesIoU {
         this.pair = new AxesPair();
     }
 
-    get_metric() {
-        return this.pair.get_giou(this.ref, this.probe);
-    }
-
     set_ref(xy_yaw_lw){
         this.ref.set_state(get_axes_state(xy_yaw_lw))
     }
 
-    set_probe(xy_yaw_lw){
+    compute_for(xy_yaw_lw){
         this.probe.set_state(get_axes_state(xy_yaw_lw))
+        return this.pair.get_giou(this.ref, this.probe)
     }
 }
 

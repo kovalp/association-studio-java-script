@@ -19,13 +19,13 @@ class BboxHelper {
     }
 
     upd_transform() {
-        this.transform.setMatrixValue('');
-        this.transform.translateSelf(this.half_screen_x, this.half_screen_y);
-        this.transform.scaleSelf(this.transform_scale, -this.transform_scale);
-        this.transform.translateSelf(this.xy_yaw_lw[0], this.xy_yaw_lw[1]);
-        this.transform.rotateSelf(180 * this.xy_yaw_lw[2] / Math.PI);
-        this.inv_transform = this.transform.inverse();
-        this.change_state_callback(this.xy_yaw_lw);
+        this.transform.setMatrixValue('')
+        this.transform.translateSelf(this.half_screen_x, this.half_screen_y)
+        this.transform.scaleSelf(this.transform_scale, -this.transform_scale)
+        this.transform.translateSelf(this.xy_yaw_lw[0], this.xy_yaw_lw[1])
+        this.transform.rotateSelf(180 * this.xy_yaw_lw[2] / Math.PI)
+        this.inv_transform = this.transform.inverse()
+        this.change_state_callback(this.xy_yaw_lw)
     }
 
     scale(num){
@@ -119,11 +119,13 @@ class BboxHelper {
     set_len(len){
         this.xy_yaw_lw[3] = Math.max(this.min_size, len);
         this.half_sxy[0] = this.xy_yaw_lw[3] / 2;
+        this.change_state_callback(this.xy_yaw_lw)
     }
 
     set_wdt(wdt){
         this.xy_yaw_lw[4] = Math.max(this.min_size, wdt);
         this.half_sxy[1] = this.xy_yaw_lw[4] / 2;
+        this.change_state_callback(this.xy_yaw_lw)
     }
 
 }
