@@ -4,22 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Association score demo.</title>
-  <script type="module" crossorigin src="/association-studio-java-script/assets/index-CM8BQfEn.js"></script>
-  <link rel="stylesheet" crossorigin href="/association-studio-java-script/assets/index-DQMY-woT.css">
+  <script type="module" crossorigin src="/association-studio-java-script/assets/index-DAgiBrrr.js"></script>
+  <link rel="stylesheet" crossorigin href="/association-studio-java-script/assets/index-Bcm-ih4U.css">
 </head>
 <body>
 
 <div id="app-container">
     <div class="tool-panel">
         <button id="reset-btn">Reset</button>
-        <span class="tool-label">Score: <span id="score-val">0</span></span>
+        <span class="tool-label" id="score-val" title="Axes-aligned GIoU">0</span>
     </div>
     <div class="tool-panel">
-        <input id="inp-x" type="number" value="0.0" min="-12.0" max="12" step="0.5">
-        <input id="inp-y" type="number" value="0.0" min="-10.0" max="10" step="0.5">
-        <input id="inp-yaw" type="number" value="0.0" min="0.0" max="360.0" step="15">
-        <input id="inp-len" type="number" value="3.0" min="0.2" max="15" step="0.5">
-        <input id="inp-wdt" type="number" value="1.5" min="0.2" max="5" step="0.5">
+        <input id="inp-x" type="number" value="0.0" min="-12.0" max="12" step="0.5" title="Position X">
+        <input id="inp-y" type="number" value="0.0" min="-10.0" max="10" step="0.5" title="Position Y">
+        <input id="inp-yaw" type="number" value="0.0" min="0.0" max="360.0" step="15" title="Orientation (yaw)">
+        <input id="inp-len" type="number" value="3.0" min="0.2" max="15" step="0.5" title="Box Length (size x)">
+        <input id="inp-wdt" type="number" value="1.5" min="0.2" max="5" step="0.5" title="Box Width (size y)">
     </div>
 
     <div id="stage">
