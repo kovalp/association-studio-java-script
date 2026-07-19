@@ -20,9 +20,9 @@ class BoxBackendUi {
         this.is_in_edge_y = false;
         this.start_event = new MouseEvent("", undefined);
         this.start_data_xy = new DOMPoint(0, 0);
-        this.canvas.addEventListener('mousedown', this.mouse_down_callback.bind(this));
-        this.canvas.addEventListener('mousemove', this.mouse_move_callback.bind(this));
-        this.canvas.addEventListener('mouseup', this.mouse_up_callback.bind(this));
+        this.canvas.addEventListener('pointerdown', this.mouse_down_callback.bind(this));
+        this.canvas.addEventListener('pointermove', this.mouse_move_callback.bind(this));
+        this.canvas.addEventListener('pointerup', this.mouse_up_callback.bind(this));
     }
 
     change(box_helper, event){

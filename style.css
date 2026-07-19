@@ -62,7 +62,8 @@ body {
 }
 
 canvas {
-  position: absolute;
+    position: absolute;
+    touch-action: none;
 }
 #stage-ui {
   z-index: 2;
