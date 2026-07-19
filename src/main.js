@@ -1,11 +1,11 @@
 import {BoxBackendUi} from "./ui/box_backend_ui.js";
 import {TopPanel} from "./ui/top_panel.js";
-import * as tf from '@tensorflow/tfjs';
+import {AxesIoU} from "./metrics/axes/iou.js";
 
-// Test if it's working
-console.log(tf.version.tfjs);
-
+const metric = new AxesIoU();
 const ori_state = [0.0, 0.0, 0.0, 3.0, 1.5]
+metric.set_ref(ori_state);
+
 const ini_state = [0.6, -0.6, 0.0, 3.0, 1.5]
 const back_bg = new BoxBackendUi('stage-bg', '#00fa', ori_state);
 const back_ui = new BoxBackendUi('stage-ui', '#f0fa', ini_state);
@@ -19,3 +19,6 @@ top_panel.inp_len.addEventListener("change", back_ui.change_len.bind(back_ui));
 top_panel.inp_wdt.addEventListener("change", back_ui.change_wdt.bind(back_ui));
 
 top_panel.reset_btn.addEventListener("click", () => {back_ui.set_state(ori_state);})
+
+metric.set_probe(ini_state);
+console.log(metric.get_metric());

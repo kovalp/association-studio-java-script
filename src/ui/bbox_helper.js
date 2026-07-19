@@ -15,13 +15,13 @@ class BboxHelper {
         this.offset_xy = new DOMPoint(0, 0);
         this.data_xy = new DOMPoint(0, 0);
         this.change_state_callback = (xy_yaw_lw) => {};
-        this._upd_transform();
+        this.upd_transform();
     }
 
-    _upd_transform() {
+    upd_transform() {
         this.transform.setMatrixValue('');
         this.transform.translateSelf(this.half_screen_x, this.half_screen_y);
-        this.transform.scaleSelf(this.transform_scale, this.transform_scale);
+        this.transform.scaleSelf(this.transform_scale, -this.transform_scale);
         this.transform.translateSelf(this.xy_yaw_lw[0], this.xy_yaw_lw[1]);
         this.transform.rotateSelf(180 * this.xy_yaw_lw[2] / Math.PI);
         this.inv_transform = this.transform.inverse();
@@ -35,7 +35,7 @@ class BboxHelper {
     translate(dx, dy) {
         this.xy_yaw_lw[0] += dx;
         this.xy_yaw_lw[1] += dy;
-        this._upd_transform();
+        this.upd_transform();
     }
 
     wrap_yaw(){
@@ -45,7 +45,7 @@ class BboxHelper {
     rotate(angle_rad) {
         this.xy_yaw_lw[2] += angle_rad;
         this.wrap_yaw();
-        this._upd_transform();
+        this.upd_transform();
     }
 
     scale_width(dy) {
@@ -95,25 +95,25 @@ class BboxHelper {
 
     set_state(xy_yaw_wh) {
         this.xy_yaw_lw.set(xy_yaw_wh);
-        this._upd_transform();
+        this.upd_transform();
         this.half_sxy[0] = this.xy_yaw_lw[3] / 2;
         this.half_sxy[1] = this.xy_yaw_lw[4] / 2;
     }
 
     set_x(x){
         this.xy_yaw_lw[0] = x;
-        this._upd_transform();
+        this.upd_transform();
     }
 
     set_y(y){
         this.xy_yaw_lw[1] = y;
-        this._upd_transform();
+        this.upd_transform();
     }
 
     set_yaw(yaw){
         this.xy_yaw_lw[2] = yaw;
         this.wrap_yaw();
-        this._upd_transform()
+        this.upd_transform()
     }
 
     set_len(len){

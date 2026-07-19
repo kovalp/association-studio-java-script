@@ -29,7 +29,7 @@ class BoxBackendUi {
         if (this.is_in_box) {
             const dx = this.box.scale(event.offsetX - this.start_event.offsetX);
             const dy = this.box.scale(event.offsetY - this.start_event.offsetY);
-            box_helper.translate(dx, dy);
+            box_helper.translate(dx, -dy);
             return
         }
 
@@ -94,6 +94,7 @@ class BoxBackendUi {
 
     set_change_state_callback(callback){
         this.box.change_state_callback = callback;
+        callback(this.box.xy_yaw_lw);
     }
 
     change_yaw(event){

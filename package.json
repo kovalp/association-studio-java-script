@@ -1,7 +1,7 @@
 {
   "name": "association-studio-java-script",
   "version": "1.0.0",
-  "description": "Association metrics in multi-target tracking: calculate and compare.",
+  "description": "Association (similarity) metrics between bounding boxes: calculate and compare.",
   "main": "src/main.js",
   "scripts": {
     "dev": "vite",
@@ -15,9 +15,6 @@
   "author": "",
   "license": "ISC",
   "type": "commonjs",
-  "dependencies": {
-    "@tensorflow/tfjs": "^4.22.0"
-  },
   "devDependencies": {
     "gh-pages": "^6.3.0",
     "vite": "^8.1.5"
