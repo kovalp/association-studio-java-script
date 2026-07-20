@@ -4,17 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Association score demo.</title>
-  <script type="module" crossorigin src="/association-studio-java-script/assets/index-03SJlZf5.js"></script>
-  <link rel="stylesheet" crossorigin href="/association-studio-java-script/assets/index-94wiivF4.css">
+  <script type="module" crossorigin src="/association-studio-java-script/assets/index-42m5TrRH.js"></script>
+  <link rel="stylesheet" crossorigin href="/association-studio-java-script/assets/index-Cwd1F056.css">
 </head>
 <body>
 
+<div id="orientation-warning">Please rotate your device to landscape mode.</div>
+
 <div id="app-container">
-    <div class="tool-panel">
+    <div class="tool-panel" id="left-panel">
         <button id="reset-btn">Reset</button>
         <span class="tool-label" id="score-val" title="Axes-aligned GIoU">0</span>
     </div>
-    <div class="tool-panel">
+    <div class="tool-panel" id="top-panel">
         <input id="inp-x" type="number" value="0.0" min="-12.0" max="12" step="0.5" title="Position X">
         <input id="inp-y" type="number" value="0.0" min="-10.0" max="10" step="0.5" title="Position Y">
         <input id="inp-yaw" type="number" value="0.0" min="0.0" max="360.0" step="15" title="Orientation (yaw)">
@@ -23,8 +25,8 @@
     </div>
 
     <div id="stage">
-        <canvas id="stage-ui" width="480" height="320"></canvas>
-        <canvas id="stage-bg" width="480" height="320"></canvas>
+        <canvas id="stage-ui" width="640" height="320"></canvas>
+        <canvas id="stage-bg" width="640" height="320"></canvas>
     </div>
 </div>
 
