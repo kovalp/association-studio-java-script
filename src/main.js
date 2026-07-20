@@ -19,6 +19,9 @@ function set_state(xy_yaw_lw){
 
 back_ui.set_change_state_callback(set_state);
 
+back_bg.resize_canvas_callback()
+back_ui.resize_canvas_callback()
+
 top_panel.inp_x.addEventListener("change", back_ui.change_x.bind(back_ui));
 top_panel.inp_y.addEventListener("change", back_ui.change_y.bind(back_ui));
 top_panel.inp_yaw.addEventListener("change", back_ui.change_yaw.bind(back_ui));

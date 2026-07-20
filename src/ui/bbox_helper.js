@@ -2,11 +2,11 @@ import {TWO_PI} from "../math_const.js";
 
 
 class BboxHelper {
-    constructor(xy_yaw_lw) {
-        this.half_screen_x = 240
-        this.half_screen_y = 160
+    constructor(xy_yaw_lw, width, height) {
+        this.width = width
+        this.height = height
         this.xy_yaw_lw = new Float32Array(xy_yaw_lw);
-        this.transform_scale = 20;
+        this.transform_scale = 40;
         this.moon_radius = 0.5;
         this.edge_width = 0.35;
         this.min_size = 0.4
@@ -18,9 +18,15 @@ class BboxHelper {
         this.upd_transform();
     }
 
+    set_canvas_size(width, height) {
+        this.width = width
+        this.height = height
+        this.upd_transform()
+    }
+
     upd_transform() {
         this.transform.setMatrixValue('')
-        this.transform.translateSelf(this.half_screen_x, this.half_screen_y)
+        this.transform.translateSelf(this.width / 2.0, this.height / 2.0)
         this.transform.scaleSelf(this.transform_scale, -this.transform_scale)
         this.transform.translateSelf(this.xy_yaw_lw[0], this.xy_yaw_lw[1])
         this.transform.rotateSelf(180 * this.xy_yaw_lw[2] / Math.PI)
@@ -128,6 +134,9 @@ class BboxHelper {
         this.change_state_callback(this.xy_yaw_lw)
     }
 
+    copy() {
+        return new BboxHelper(this.xy_yaw_lw, this.width, this.height);
+    }
 }
 
 export { BboxHelper };

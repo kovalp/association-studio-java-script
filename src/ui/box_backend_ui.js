@@ -9,9 +9,10 @@ class BoxBackendUi {
     constructor(canvas_id, box_style, xy_yaw_lw) {
         this.canvas = document.getElementById(canvas_id);
         this.ctx = this.canvas.getContext("2d");
+        this.stage = document.getElementById('stage');
         this.screen = new Screen(this.canvas, this.ctx);
         this.box_plt = new BboxPlot(box_style);
-        this.box = new BboxHelper(xy_yaw_lw);
+        this.box = new BboxHelper(xy_yaw_lw, 640, 480);
         this.box_plt.draw(this.ctx, this.box);
         this.is_dragging = false;
         this.is_in_box = false;
@@ -23,6 +24,7 @@ class BoxBackendUi {
         this.canvas.addEventListener('pointerdown', this.mouse_down_callback.bind(this));
         this.canvas.addEventListener('pointermove', this.mouse_move_callback.bind(this));
         this.canvas.addEventListener('pointerup', this.mouse_up_callback.bind(this));
+        window.addEventListener('resize', this.resize_canvas_callback.bind(this));
     }
 
     change(box_helper, event){
@@ -64,7 +66,7 @@ class BoxBackendUi {
 
     mouse_move_callback(event){
         if (this.is_dragging) {
-            this.change_and_draw(new BboxHelper(this.box.xy_yaw_lw), event);
+            this.change_and_draw(this.box.copy(), event);
         } else {
             this._upd_in_flags(event);
             const in_edge = this.is_in_edge_x || this.is_in_edge_y;
@@ -110,6 +112,14 @@ class BoxBackendUi {
     update(update_fn) {
         update_fn();
         this.draw();
+    }
+
+    resize_canvas_callback(){
+        const rect = this.stage.getBoundingClientRect();
+        this.canvas.width = rect.width;
+        this.canvas.height = rect.height;
+        this.box.set_canvas_size(rect.width, rect.height);
+        this.draw(this.box)
     }
 }
 
