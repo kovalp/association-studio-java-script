@@ -28,6 +28,8 @@ class TopPanel{
         if (this.key_map[event.key]) {
             const [normal_inp, alt_inp, dir] = this.key_map[event.key];
             step_inp_num(event.altKey ? alt_inp : normal_inp, dir);
+        } else if (event.key == "r"){
+            this.reset_btn.click()
         }
     }
 
