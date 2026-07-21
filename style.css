@@ -106,7 +106,7 @@ canvas {
     justify-content: flex-start;
     gap: 8px;
     padding: 8px;
-    width: 160px; /* Reduced width to save space for canvas */
+    width: 160px;
 }
 
 .tool-panel button {
@@ -126,7 +126,6 @@ canvas {
     background-color: #005999;
 }
 
-/* Metric Display Cards */
 .score-card {
     display: flex;
     flex-direction: column;
@@ -153,7 +152,17 @@ canvas {
 #score-val1 { color: #f96; }
 #score-val2 { color: #89f; }
 
-/* Orientation Overlay */
+#explanation-panel {
+    display: none;
+    grid-column: 1;
+    grid-row: 2;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 8px;
+    padding: 8px;
+    width: 160px; /* Reduced width to save space for canvas */
+}
+
 #orientation-warning {
     display: none;
     position: fixed;
