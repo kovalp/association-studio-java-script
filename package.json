@@ -1,6 +1,6 @@
 {
   "name": "association-studio-java-script",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Association (similarity) metrics between bounding boxes: calculate and compare.",
   "main": "src/main.js",
   "scripts": {
