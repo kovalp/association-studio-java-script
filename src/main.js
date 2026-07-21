@@ -9,7 +9,7 @@ const ori_state = [0.0, 0.0, 0.0, 3.0, 1.5]
 iou_score.set_ref(ori_state);
 mahalanobis_score.set_ref(ori_state);
 
-const ini_state = [0.6, -0.6, 0.0, 3.0, 1.5]
+const ini_state = [0.5, -0.5, 0.0, 3.0, 1.5]
 const back_bg = new BoxBackendUi('stage-bg', '#00fa', ori_state);
 const back_ui = new BoxBackendUi('stage-ui', '#f0fa', ini_state);
 const top_panel = new TopPanel();

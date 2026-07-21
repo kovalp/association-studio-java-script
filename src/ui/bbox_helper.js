@@ -9,7 +9,7 @@ class BboxHelper {
         this.transform_scale = 40;
         this.moon_radius = 0.5;
         this.edge_width = 0.35;
-        this.min_size = 0.4
+        this.min_size = 0.5
         this.transform = new DOMMatrix();
         this.half_sxy = new Float32Array([xy_yaw_lw[3] / 2, xy_yaw_lw[4] / 2]);
         this.offset_xy = new DOMPoint(0, 0);
