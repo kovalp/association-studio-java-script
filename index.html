@@ -2,35 +2,56 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Association score demo.</title>
-  <script type="module" crossorigin src="/association-studio-java-script/assets/index-CFd59ahQ.js"></script>
-  <link rel="stylesheet" crossorigin href="/association-studio-java-script/assets/index-mNixtJcQ.css">
+  <script type="module" crossorigin src="/association-studio-java-script/assets/index-Dc95zBD8.js"></script>
+  <link rel="stylesheet" crossorigin href="/association-studio-java-script/assets/index-CdDA-Ban.css">
 </head>
 <body>
 
 <div id="orientation-warning">Please rotate your device to landscape mode.</div>
 
 <div id="app-container">
+    <!-- Left Panel -->
     <div class="tool-panel" id="left-panel">
         <button id="reset-btn">Reset</button>
-        <div class="tool-label" id="div-score1">
-            <span style="color: #f16">GIoU</span>
-            <span class="tool-label" id="score-val1" title="Axes-aligned GIoU">0</span>
+
+        <div class="score-card">
+            <span class="score-title" style="color: #f16">GIoU</span>
+            <span class="score-value" id="score-val1" title="Axes-aligned GIoU">0.00</span>
         </div>
-        <div class="tool-label" id="div-score2">
-            <span style="color: #61f">Maha</span>
-            <span class="tool-label" id="score-val2" title="Mahalanobis">0</span>
+
+        <div class="score-card">
+            <span class="score-title" style="color: #a6f">Maha</span>
+            <span class="score-value" id="score-val2" title="Mahalanobis">0.00</span>
         </div>
-    </div>
-    <div class="tool-panel" id="top-panel">
-        <input id="inp-x" type="number" value="0.0" min="-12.0" max="12" step="0.5" title="Position X">
-        <input id="inp-y" type="number" value="0.0" min="-10.0" max="10" step="0.5" title="Position Y">
-        <input id="inp-yaw" type="number" value="0.0" min="0.0" max="360.0" step="15" title="Orientation (yaw)">
-        <input id="inp-len" type="number" value="3.0" min="0.5" max="15" step="0.5" title="Box Length (size x)">
-        <input id="inp-wdt" type="number" value="1.5" min="0.5" max="5" step="0.5" title="Box Width (size y)">
     </div>
 
+    <!-- Top Panel -->
+    <div class="tool-panel" id="top-panel">
+        <div class="input-group">
+            <label for="inp-x">X</label>
+            <input id="inp-x" type="number" value="0.0" min="-12.0" max="12" step="0.5" title="Position X">
+        </div>
+        <div class="input-group">
+            <label for="inp-y">Y</label>
+            <input id="inp-y" type="number" value="0.0" min="-10.0" max="10" step="0.5" title="Position Y">
+        </div>
+        <div class="input-group">
+            <label for="inp-yaw">Yaw</label>
+            <input id="inp-yaw" type="number" value="0.0" min="0.0" max="360.0" step="15" title="Orientation (yaw)">
+        </div>
+        <div class="input-group">
+            <label for="inp-len">Len</label>
+            <input id="inp-len" type="number" value="3.0" min="0.5" max="15" step="0.5" title="Box Length (size x)">
+        </div>
+        <div class="input-group">
+            <label for="inp-wdt">Wdt</label>
+            <input id="inp-wdt" type="number" value="1.5" min="0.5" max="5" step="0.5" title="Box Width (size y)">
+        </div>
+    </div>
+
+    <!-- Main Workspace -->
     <div id="stage">
         <canvas id="stage-ui" width="640" height="320"></canvas>
         <canvas id="stage-bg" width="640" height="320"></canvas>
