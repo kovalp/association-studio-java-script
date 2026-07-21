@@ -1,10 +1,13 @@
 import {BoxBackendUi} from "./ui/box_backend_ui.js";
 import {TopPanel} from "./ui/top_panel.js";
-import {AxesIoU} from "./metrics/axes/iou.js";
+import {AxesIoU} from "./metrics/axes/axes_iou_score.js";
+import {MahalanobisScore} from "./metrics/mahalanobis/mahalanobis_score.js";
 
-const metric = new AxesIoU();
+const iou_score = new AxesIoU()
+const mahalanobis_score = new MahalanobisScore()
 const ori_state = [0.0, 0.0, 0.0, 3.0, 1.5]
-metric.set_ref(ori_state);
+iou_score.set_ref(ori_state);
+mahalanobis_score.set_ref(ori_state);
 
 const ini_state = [0.6, -0.6, 0.0, 3.0, 1.5]
 const back_bg = new BoxBackendUi('stage-bg', '#00fa', ori_state);
@@ -14,7 +17,9 @@ const top_panel = new TopPanel();
 
 function set_state(xy_yaw_lw){
     top_panel.set_state(xy_yaw_lw)
-    top_panel.set_score(metric.compute_for(xy_yaw_lw))
+    const score1 = iou_score.compute_for(xy_yaw_lw)
+    const score2 = mahalanobis_score.compute_for(xy_yaw_lw)
+    top_panel.set_scores(score1, score2)
 }
 
 back_ui.set_change_state_callback(set_state);

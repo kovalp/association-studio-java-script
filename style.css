@@ -73,22 +73,28 @@ canvas {
     padding: 10px;
     margin-left: auto;
     font-size: 24px;
-    color: #f16;
     background-color: #fff;
     font-weight: 700;
     letter-spacing: 0.5px;
     user-select: none;
 }
 
+#score-val1 {
+    color: #f16;
+}
+
+#score-val2 {
+    color: #61f;
+}
 
 #left-panel {
     grid-column: 1;
     grid-row: 2;
     flex-direction: column;
     justify-content: center;
-    gap: 12px;
+    gap: 2px;
     padding: 15px 10px;
-    width: 160px;
+    width: 220px;
 }
 
 /* Top Panel Layout: Stretches across both columns */
@@ -139,7 +145,7 @@ canvas {
   align-items: center;
   justify-content: center;
   font-family: sans-serif;
-  font-size: 1.7rem;
+  font-size: 2rem;
   text-align: center;         /* Centers the text once it wraps to multiple lines */
   padding: 2rem;              /* Gives a nice buffer so text never touches the glass edge */
   box-sizing: border-box;     /* Ensures the padding doesn't accidentally make the box wider than 100% */

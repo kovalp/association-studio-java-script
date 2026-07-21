@@ -13,7 +13,14 @@
 <div id="app-container">
     <div class="tool-panel" id="left-panel">
         <button id="reset-btn">Reset</button>
-        <span class="tool-label" id="score-val" title="Axes-aligned GIoU">0</span>
+        <div class="tool-label" id="div-score1">
+            <span style="color: #f16">GIoU</span>
+            <span class="tool-label" id="score-val1" title="Axes-aligned GIoU">0</span>
+        </div>
+        <div class="tool-label" id="div-score2">
+            <span style="color: #61f">Maha</span>
+            <span class="tool-label" id="score-val2" title="Mahalanobis">0</span>
+        </div>
     </div>
     <div class="tool-panel" id="top-panel">
         <input id="inp-x" type="number" value="0.0" min="-12.0" max="12" step="0.5" title="Position X">

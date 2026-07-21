@@ -2,7 +2,8 @@
 class TopPanel{
     constructor(){
         this.reset_btn = document.getElementById("reset-btn");
-        this.score_val = document.getElementById("score-val");
+        this.score_val1 = document.getElementById("score-val1");
+        this.score_val2 = document.getElementById("score-val2");
         this.inp_x = document.getElementById("inp-x");
         this.inp_y = document.getElementById("inp-y");
         this.inp_yaw = document.getElementById("inp-yaw");
@@ -10,8 +11,9 @@ class TopPanel{
         this.inp_wdt = document.getElementById("inp-wdt");
     }
 
-    set_score(val){
-        this.score_val.textContent = val.toFixed(5);
+    set_scores(val1, val2){
+        this.score_val1.textContent = val1.toFixed(5);
+        this.score_val2.textContent = val2.toFixed(5);
     }
 
     set_state(xy_yaw_lw){
