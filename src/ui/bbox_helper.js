@@ -135,7 +135,9 @@ class BboxHelper {
     }
 
     copy() {
-        return new BboxHelper(this.xy_yaw_lw, this.width, this.height);
+        let obj = new BboxHelper(this.xy_yaw_lw, this.width, this.height);
+        obj.change_state_callback = this.change_state_callback
+        return obj;
     }
 }
 
