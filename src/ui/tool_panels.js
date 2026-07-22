@@ -22,9 +22,21 @@ class ToolPanels {
             ArrowRight: [this.inp_x,   this.inp_len,  1.0],
             ArrowLeft:  [this.inp_x,   this.inp_len, -1.0],
         }
+        this.explain_maha_chk_btn = document.getElementById("explain-mahalanobis-chk-btn")
+        this.explain_maha_chk_btn.addEventListener("click", this.explain_maha_panel_show.bind(this))
+        this.explain_maha_panel = document.getElementById("explain-mahalanobis-panel")
         this.inp_precision_pos = document.getElementById("precision-pos")
         this.inp_precision_yaw = document.getElementById("precision-yaw")
         this.inp_precision_size = document.getElementById("precision-size")
+        this.sqr_pos_diff = document.getElementById("sqr-pos-diff")
+        this.sqr_yaw_diff = document.getElementById("sqr-yaw-diff")
+        this.sqr_size_diff = document.getElementById("sqr-size-diff")
+        this.sqr_maha_dist = document.getElementById("sqr-maha-dist")
+    }
+
+    explain_maha_panel_show(event){
+        const display = event.target.checked ? "flex": "none";
+        this.explain_maha_panel.style.display = display
     }
 
     handle_key_down(event){

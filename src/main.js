@@ -20,6 +20,10 @@ function set_state(xy_yaw_lw){
     const score1 = iou_score.compute_for(xy_yaw_lw)
     const score2 = mahalanobis_score.compute_for(xy_yaw_lw)
     tool_panels.set_scores(score1, score2)
+    tool_panels.sqr_pos_diff.textContent = mahalanobis_score.pair.sqr_pos_diff.toFixed(2)
+    tool_panels.sqr_yaw_diff.textContent = mahalanobis_score.pair.sqr_yaw_diff.toFixed(2)
+    tool_panels.sqr_size_diff.textContent = mahalanobis_score.pair.sqr_size_diff.toFixed(2)
+    tool_panels.sqr_maha_dist.textContent = mahalanobis_score.pair.sqr_maha_dist.toFixed(3)
 }
 
 back_ui.set_change_state_callback(set_state);

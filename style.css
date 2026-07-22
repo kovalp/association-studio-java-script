@@ -106,7 +106,7 @@ input[type="number"] {
     justify-content: flex-start;
     gap: 8px;
     padding: 8px;
-    width: 160px;
+    width: 190px;
 }
 
 .tool-panel button {
@@ -152,9 +152,12 @@ input[type="number"] {
 #score-val1 { color: #f96; }
 #score-val2 { color: #89f; }
 
-#explanation-panel {
+#explain-mahalanobis-panel {
+    display: none;
     gap: 4px;
     padding: 4px;
+    max-width: 12rem;
+    color: #007acc;
 }
 
 #orientation-warning {
