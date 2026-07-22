@@ -15,7 +15,7 @@ html, body {
 #app-container {
     display: grid;
     grid-template-columns: auto 1fr;
-    grid-template-rows: auto 1fr;
+    grid-template-rows: auto auto 1fr;
     gap: 4px;
     width: 100%;
     height: 100vh;
@@ -24,7 +24,7 @@ html, body {
 
 #stage {
     grid-column: 2;
-    grid-row: 2;
+    grid-row: 2 / span 2;
     width: 100%;
     height: 100%;
     min-width: 0;
@@ -85,7 +85,7 @@ canvas {
     user-select: none;
 }
 
-#top-panel input[type="number"] {
+input[type="number"] {
     width: auto;
     background-color: transparent;
     color: #00ffff;
@@ -98,7 +98,7 @@ canvas {
     outline: none;
 }
 
-/* --- Left Sidebar --- */
+
 #left-panel {
     grid-column: 1;
     grid-row: 2;
@@ -153,14 +153,8 @@ canvas {
 #score-val2 { color: #89f; }
 
 #explanation-panel {
-    display: none;
-    grid-column: 1;
-    grid-row: 2;
-    flex-direction: column;
-    justify-content: flex-start;
-    gap: 8px;
-    padding: 8px;
-    width: 160px; /* Reduced width to save space for canvas */
+    gap: 4px;
+    padding: 4px;
 }
 
 #orientation-warning {

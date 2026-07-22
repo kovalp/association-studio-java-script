@@ -5,7 +5,7 @@ function step_inp_num(inp, direction) {
 }
 
 
-class TopPanel{
+class ToolPanels {
     constructor(){
         this.reset_btn = document.getElementById("reset-btn")
         this.score_val1 = document.getElementById("score-val1")
@@ -22,10 +22,13 @@ class TopPanel{
             ArrowRight: [this.inp_x,   this.inp_len,  1.0],
             ArrowLeft:  [this.inp_x,   this.inp_len, -1.0],
         }
+        this.inp_precision_pos = document.getElementById("precision-pos")
+        this.inp_precision_yaw = document.getElementById("precision-yaw")
+        this.inp_precision_size = document.getElementById("precision-size")
     }
 
     handle_key_down(event){
-        if (this.key_map[event.key]) {
+        if (this.key_map[event.key] && event.target.tagName === "BODY") {
             const [normal_inp, alt_inp, dir] = this.key_map[event.key];
             step_inp_num(event.altKey ? alt_inp : normal_inp, dir);
         } else if (event.key == "r"){
@@ -48,4 +51,4 @@ class TopPanel{
 
 }
 
-export {TopPanel};
+export {ToolPanels};
