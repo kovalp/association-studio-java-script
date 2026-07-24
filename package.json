@@ -16,14 +16,9 @@
   "license": "ISC",
   "type": "module",
   "devDependencies": {
-    "chai-almost": "^1.0.1",
-    "chai-fuzzy": "^1.6.1",
     "gh-pages": "^6.3.0",
+    "jest-matcher-deep-close-to": "^3.0.2",
     "vite": "^8.1.5",
     "vitest": "^4.1.10"
-  },
-  "dependencies": {
-    "jest-matcher-deep-close-to": "^3.0.2",
-    "jest-matcher-utils": "^30.4.1"
   }
 }
