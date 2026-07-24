@@ -4,19 +4,26 @@
   "description": "Association (similarity) metrics between bounding boxes: calculate and compare.",
   "main": "src/main.js",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --host",
     "build": "vite build",
     "preview": "vite preview",
-    "predeploy": "npm run build",
     "deploy": "gh-pages -d dist",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "vitest run",
+    "test:watch": "vitest"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
+  "type": "module",
   "devDependencies": {
+    "chai-almost": "^1.0.1",
+    "chai-fuzzy": "^1.6.1",
     "gh-pages": "^6.3.0",
-    "vite": "^8.1.5"
+    "vite": "^8.1.5",
+    "vitest": "^4.1.10"
+  },
+  "dependencies": {
+    "jest-matcher-deep-close-to": "^3.0.2",
+    "jest-matcher-utils": "^30.4.1"
   }
 }

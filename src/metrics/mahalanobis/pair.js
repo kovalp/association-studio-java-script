@@ -4,7 +4,6 @@ import {MahalanobisBox} from "./item.js";
 class MahalanobisPair {
     constructor(){
         this.dia_inv_cov = new Float32Array([1.48, 1.48, 4, 4, 2, 2])
-        this.temp = new Float32Array(6)
         this.sqr_pos_diff = 0.0
         this.sqr_yaw_diff = 0.0
         this.sqr_size_diff = 0.0
@@ -14,22 +13,31 @@ class MahalanobisPair {
     /**
      * @param {MahalanobisBox} b1 - first box
      * @param {MahalanobisBox} b2 - second box
-     * @return Mahalanobis similarity score (exp(-D^2 /(2 N))), where N = 6 in this case.
+     * @return {number} Mahalanobis similarity score (exp(-D^2 /(2 N))), where N = 6 in this case.
      */
     get_score(b1, b2){
-        this.sqr_pos_diff = 0.0;
-        for (let i = 0; i < 2; i++) this.sqr_pos_diff += (b2.xy_cs_lw[i] - b1.xy_cs_lw[i]) ** 2;
+        const a1 = b1.xy_cs_lw, a2 = b2.xy_cs_lw;
 
-        this.sqr_yaw_diff = 0.0;
-        for (let i = 2; i < 4; i++) this.sqr_yaw_diff += (b2.xy_cs_lw[i] - b1.xy_cs_lw[i]) ** 2;
+        const d0 = a1[0] - a2[0]
+        const d1 = a1[1] - a2[1]
+        const d2 = a1[2] - a2[2]
+        const d3 = a1[3] - a2[3]
+        const d4 = a1[4] - a2[4]
+        const d5 = a1[5] - a2[5]
 
-        this.sqr_size_diff = 0.0;
-        for (let i = 4; i < 6; i++) this.sqr_size_diff += (b2.xy_cs_lw[i] - b1.xy_cs_lw[i]) ** 2;
+        const s0 = d0 * d0
+        const s1 = d1 * d1
+        const s2 = d2 * d2
+        const s3 = d3 * d3
+        const s4 = d4 * d4
+        const s5 = d5 * d5
 
-        for (let i = 0; i < 6; i++){
-            this.temp[i] = (b2.xy_cs_lw[i] - b1.xy_cs_lw[i]) ** 2 * this.dia_inv_cov[i]
-        }
-        this.sqr_maha_dist = this.temp.reduce((s, c) => {return s + c});
+        this.sqr_pos_diff = s0 + s1
+        this.sqr_yaw_diff = s2 + s3
+        this.sqr_size_diff = s4 + s5;
+
+        const w = this.dia_inv_cov
+        this.sqr_maha_dist = s0 * w[0] + s1 * w[1] + s2 * w[2] + s3 * w[3] + s4 * w[4] + s5 * w[5]
         return Math.exp(-this.sqr_maha_dist / 12.0)
     }
 }
