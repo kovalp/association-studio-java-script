@@ -13,7 +13,7 @@ describe('get_mah_state helper function', () => {
 })
 
 
-const it = baseIt.extend({sa: ({}, use) => use(new MahalanobisScore())});
+const it = baseIt.extend({sa: ({}, use) => use(new MahalanobisScore())})
 
 describe('MahalanobisScore constructor', () => {
     it('should have the attributes', ({ sa }) => {

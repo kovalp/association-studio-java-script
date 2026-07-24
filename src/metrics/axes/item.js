@@ -4,11 +4,11 @@ class AxesBox {
     //    min ----
 
     constructor(xy_lw){
-        this.area = Number(xy_lw[2] * xy_lw[3]);
-        this.min_x = Number(0.0)
-        this.max_x = Number(0.0)
-        this.min_y = Number(0.0)
-        this.max_y = Number(0.0)
+        this.area = 0.0
+        this.min_x = 0.0
+        this.max_x = 0.0
+        this.min_y = 0.0
+        this.max_y = 0.0
         this.set_state(xy_lw)
     }
 
@@ -23,7 +23,6 @@ class AxesBox {
         this.min_y = xy_lw[1] - hy
         this.max_y = xy_lw[1] + hy
     }
-
 }
 
 export {AxesBox};
