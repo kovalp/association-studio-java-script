@@ -1,5 +1,5 @@
-import {MahalanobisBox} from "./item.js";
-import {MahalanobisPair} from "./pair.js";
+import {MahalanobisBox} from "./item";
+import {MahalanobisPair} from "./pair";
 
 
 function get_mah_state(xy_yaw_lw){
@@ -24,4 +24,4 @@ class MahalanobisScore {
     }
 }
 
-export { MahalanobisScore };
+export { MahalanobisScore, get_mah_state };
