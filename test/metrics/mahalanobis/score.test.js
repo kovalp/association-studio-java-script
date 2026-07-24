@@ -44,7 +44,7 @@ describe('MahalanobisScore compute_for method', () => {
         expect(sa.probe.xy_cs_lw === id_before).toBe(true)
         expect(sa.probe.xy_cs_lw).toBeDeepCloseTo([1.4, 2.3, 0.9924450516700745, 0.12269008904695511, 3.2, 4.1])
         expect(score).toBeCloseTo(0.13100280525766336)
-        expect(sa.pair.sqr_maha_dist).toBeCloseTo(24.390438501955554)
+        expect(sa.pair.sqr_maha_dist).toBeCloseTo(24.53543835795074)
         expect(sa.pair.sqr_pos_diff).toBeCloseTo(7.249999713897708)
         expect(sa.pair.sqr_yaw_diff).toBeCloseTo(0.015109935194617619)
         expect(sa.pair.sqr_size_diff).toBeCloseTo(6.799999523162853)

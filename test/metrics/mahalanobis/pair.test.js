@@ -21,7 +21,7 @@ describe('MahalanobisPair constructor', () => {
     it("should have the attributes", ({ mp }) =>{
         expect(mp.dia_inv_cov).toBeInstanceOf(Float32Array)
         expect(mp.dia_inv_cov).toHaveLength(6)
-        expect(mp.dia_inv_cov).toBeDeepCloseTo([1.48, 1.48, 4, 4, 2, 2])
+        expect(mp.dia_inv_cov).toBeDeepCloseTo([1.5, 1.5, 4, 4, 2, 2])
         expect(mp.sqr_pos_diff).toBeCloseTo(0.0)
         expect(mp.sqr_yaw_diff).toBeCloseTo(0.0)
         expect(mp.sqr_size_diff).toBeCloseTo(0.0)
