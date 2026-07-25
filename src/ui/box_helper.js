@@ -3,7 +3,7 @@
  * to the screen (canvas) coordinate system.
  * In the box system is centered in the box center and rotated such that
  * the length of the box is along x-axis, while the width of the box is along y-axis.
-**/
+ **/
 
 import { TWO_PI } from '../math_const.js'
 

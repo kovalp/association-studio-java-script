@@ -16,6 +16,5 @@ describe('BoxHelper is_in_edge_x the scale handle element', () => {
         bh.data_xy.x = 1.99
         bh.data_xy.y = -2.86
         expect(bh.is_in_edge_x()).toBe(false)
-
     })
 })

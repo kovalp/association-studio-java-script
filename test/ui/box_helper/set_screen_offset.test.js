@@ -10,5 +10,4 @@ describe('BoxHelper calculation of data coordinates given screen coordinates', (
         expect(bh.data_xy.x).toBeCloseTo(4.821417482714622)
         expect(bh.data_xy.y).toBeCloseTo(8.162080522598009)
     })
-
 })

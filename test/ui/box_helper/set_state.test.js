@@ -25,5 +25,4 @@ describe('BoxHelper set_state method', () => {
         bh.set_state([0.0, 1.0, 123.0, 3.0, 4.0])
         expect(bh.xy_yaw_lw).toBeDeepCloseTo([0.0, 1.0, 3.619479179382324, 3.0, 4.0])
     })
-
 })

@@ -16,6 +16,5 @@ describe('BoxHelper is_in_moon the rotation handle element', () => {
         bh.data_xy.x = 2.01
         bh.data_xy.y = 1.01
         expect(bh.is_in_moon()).toBe(false)
-
     })
 })

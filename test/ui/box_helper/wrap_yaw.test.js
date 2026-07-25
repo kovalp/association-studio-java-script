@@ -23,6 +23,5 @@ describe('BoxHelper wrap yaw angle', () => {
         bh.xy_yaw_lw[2] = -123.0
         bh.wrap_yaw()
         expect(bh.xy_yaw_lw[2]).toBeCloseTo(2.663706064224243)
-
     })
 })

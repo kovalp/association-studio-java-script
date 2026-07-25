@@ -1,7 +1,6 @@
 import { describe, it, expect, vi } from 'vitest'
 import { get_bh } from './conftest.js'
-import {BoxHelper} from "@/ui/box_helper"
-
+import { BoxHelper } from '@/ui/box_helper'
 
 describe('BoxHelper copy method', () => {
     it('should return the new instance with the same internals', () => {

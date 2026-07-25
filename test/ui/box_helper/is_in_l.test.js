@@ -9,6 +9,6 @@ describe('BoxHelper is_in_l (within length) method', () => {
         expect(bh.is_in_l()).toBe(true)
 
         bh.data_xy.x = 2.01
-        expect(bh.is_in_l()).toBe(false);
+        expect(bh.is_in_l()).toBe(false)
     })
 })

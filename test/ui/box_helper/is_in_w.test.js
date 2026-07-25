@@ -9,6 +9,6 @@ describe('BoxHelper is_in_w (within width) method', () => {
         expect(bh.is_in_w()).toBe(true)
 
         bh.data_xy.y = 2.51
-        expect(bh.is_in_w()).toBe(false);
+        expect(bh.is_in_w()).toBe(false)
     })
 })

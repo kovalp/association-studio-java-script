@@ -20,5 +20,4 @@ describe('BoxHelper scale (box) length method', () => {
         expect(bh.half_sxy[0]).toBeCloseTo(0.25)
         expect(cb_spy).toHaveBeenCalledTimes(1)
     })
-
 })
