@@ -1,12 +1,12 @@
 import { describe, it, expect } from 'vitest'
 import { createCanvas, DOMMatrix } from 'canvas'
-import { BboxPlot } from '@/ui/box_plot'
+import { BoxPlot } from '@/ui/box_plot'
 
 describe('the BoxPlot draw method', () => {
     it('should plot the rectangle', async () => {
         const canvas = createCanvas(640, 480)
         const ctx = canvas.getContext('2d')
-        const bp = new BboxPlot('red')
+        const bp = new BoxPlot('red')
         const transform = new DOMMatrix([1, 0, 0, 1, 0, 0])
         transform.translateSelf(320, 240)
         transform.scaleSelf(20, -20)

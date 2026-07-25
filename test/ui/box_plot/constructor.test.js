@@ -1,9 +1,9 @@
 import { describe, it, expect } from 'vitest'
-import { BboxPlot } from '@/ui/box_plot.js'
+import { BoxPlot } from '@/ui/box_plot'
 
 describe('BoxPlot constructor', () => {
     it('should have the attributes', () => {
-        const bp = new BboxPlot('red')
+        const bp = new BoxPlot('red')
         expect(bp.box_style).toEqual('red')
         expect(bp.edge_style).toEqual('gray')
         expect(bp.edge_width).toEqual(0.1)

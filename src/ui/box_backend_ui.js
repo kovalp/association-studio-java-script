@@ -1,5 +1,5 @@
-import { BboxHelper } from './box_helper.js'
-import { BboxPlot } from './box_plot.js'
+import { BoxHelper } from './box_helper.js'
+import { BoxPlot } from './box_plot.js'
 import { Screen } from './screen.js'
 import { get_cursor } from './mouse_cursor.js'
 import { get_angle } from '../rotations.js'
@@ -10,8 +10,8 @@ class BoxBackendUi {
         this.ctx = this.canvas.getContext('2d')
         this.stage = document.getElementById('stage')
         this.screen = new Screen(this.canvas, this.ctx)
-        this.box_plt = new BboxPlot(box_style)
-        this.box = new BboxHelper(xy_yaw_lw, 640, 480)
+        this.box_plt = new BoxPlot(box_style)
+        this.box = new BoxHelper(xy_yaw_lw, 640, 480)
         this.box_plt.draw(this.ctx, this.box)
         this.is_dragging = false
         this.is_in_box = false
@@ -40,7 +40,7 @@ class BoxBackendUi {
         } else if (this.is_in_edge_x) {
             box_helper.scale_width(2 * (this.start_data_xy.y - box_helper.data_xy.y))
         } else if (this.is_in_edge_y) {
-            box_helper.scale_len(2 * (this.start_data_xy.x - box_helper.data_xy.x))
+            box_helper.scale_length(2 * (this.start_data_xy.x - box_helper.data_xy.x))
         }
     }
 

@@ -1,6 +1,6 @@
 import { TWO_PI, HALF_PI } from '../math_const.js'
 
-class BboxPlot {
+class BoxPlot {
     constructor(box_style) {
         this.box_style = box_style
         this.moon_style = '#0f0a'
@@ -35,4 +35,4 @@ class BboxPlot {
     }
 }
 
-export { BboxPlot }
+export { BoxPlot }

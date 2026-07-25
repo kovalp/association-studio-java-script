@@ -1,6 +1,13 @@
+/**
+ * The class `BoxHelper` keeps track of the transform from the box coordinate system
+ * to the screen (canvas) coordinate system.
+ * In the box system is centered in the box center and rotated such that
+ * the length of the box is along x-axis, while the width of the box is along y-axis.
+**/
+
 import { TWO_PI } from '../math_const.js'
 
-class BboxHelper {
+class BoxHelper {
     constructor(xy_yaw_lw, width, height) {
         this.width = width
         this.height = height
@@ -60,7 +67,7 @@ class BboxHelper {
         this.change_state_callback(this.xy_yaw_lw)
     }
 
-    scale_len(dx) {
+    scale_length(dx) {
         this.xy_yaw_lw[3] += dx
         this.xy_yaw_lw[3] = Math.max(this.min_size, this.xy_yaw_lw[3])
         this.half_sxy[0] = this.xy_yaw_lw[3] / 2
@@ -72,16 +79,16 @@ class BboxHelper {
         this.data_xy = this.inv_transform.transformPoint(this.offset_xy)
     }
 
-    is_in_h() {
+    is_in_l() {
         return Math.abs(this.data_xy.x) < this.half_sxy[0]
     }
 
-    is_in_v() {
+    is_in_w() {
         return Math.abs(this.data_xy.y) < this.half_sxy[1]
     }
 
     is_in_box() {
-        return this.is_in_h() && this.is_in_v()
+        return this.is_in_l() && this.is_in_w()
     }
 
     is_in_moon() {
@@ -91,15 +98,18 @@ class BboxHelper {
     }
 
     is_in_edge_x() {
-        return this.is_in_h() && Math.abs(this.data_xy.y + this.half_sxy[1]) < this.edge_width
+        return this.is_in_l() && Math.abs(this.data_xy.y + this.half_sxy[1]) < this.edge_width
     }
 
     is_in_edge_y() {
-        return Math.abs(this.data_xy.x + this.half_sxy[0]) < this.edge_width && this.is_in_v()
+        return Math.abs(this.data_xy.x + this.half_sxy[0]) < this.edge_width && this.is_in_w()
     }
 
     set_state(xy_yaw_wh) {
         this.xy_yaw_lw.set(xy_yaw_wh)
+        this.wrap_yaw()
+        this.xy_yaw_lw[3] = Math.max(this.min_size, this.xy_yaw_lw[3])
+        this.xy_yaw_lw[4] = Math.max(this.min_size, this.xy_yaw_lw[4])
         this.upd_transform()
         this.half_sxy[0] = this.xy_yaw_lw[3] / 2
         this.half_sxy[1] = this.xy_yaw_lw[4] / 2
@@ -134,10 +144,10 @@ class BboxHelper {
     }
 
     copy() {
-        let obj = new BboxHelper(this.xy_yaw_lw, this.width, this.height)
+        let obj = new BoxHelper(this.xy_yaw_lw, this.width, this.height)
         obj.change_state_callback = this.change_state_callback
         return obj
     }
 }
 
-export { BboxHelper }
+export { BoxHelper }
