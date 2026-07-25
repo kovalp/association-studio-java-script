@@ -1,21 +1,18 @@
 import { describe, it as baseIt, expect } from 'vitest'
 import { AxesIoU, get_axes_state } from '@/metrics/axes/score'
-import { AxesBox } from "@/metrics/axes/item"
-
+import { AxesBox } from '@/metrics/axes/item'
 
 describe('get_axes_state helper function', () => {
-    it("should return correct value given (x,y,yaw,l,w)", () => {
+    it('should return correct value given (x,y,yaw,l,w)', () => {
         const xy_lw = get_axes_state([1.0, 2.0, 3.0, 4.0, 5.0])
         expect(xy_lw).toBeInstanceOf(Float32Array)
-        expect(xy_lw).toBeDeepCloseTo([ 1, 2, 4, 5 ])
-    });
+        expect(xy_lw).toBeDeepCloseTo([1, 2, 4, 5])
+    })
 })
 
+const it = baseIt.extend({ sa: ({}, use) => use(new AxesIoU()) })
 
-const it = baseIt.extend({sa: ({}, use) => use(new AxesIoU())})
-
-
-function check_axes_box(box){
+function check_axes_box(box) {
     expect(box).toBeInstanceOf(AxesBox)
     expect(box.min_x).toBeCloseTo(-1.5)
     expect(box.max_x).toBeCloseTo(1.5)
@@ -23,14 +20,12 @@ function check_axes_box(box){
     expect(box.max_y).toBeCloseTo(0.75)
 }
 
-
 describe('AxesIoU constructor', () => {
     it('should have the attributes', ({ sa }) => {
         check_axes_box(sa.ref)
         check_axes_box(sa.probe)
     })
 })
-
 
 describe('AxesIoU reference setter', () => {
     it('sets the reference box from x,y,yaw,l,w state', ({ sa }) => {
@@ -43,7 +38,6 @@ describe('AxesIoU reference setter', () => {
     })
 })
 
-
 describe('AxesIoU compute method', () => {
     it('sets the probe box from x,y,yaw,l,w state and computes GIoU', ({ sa }) => {
         const score = sa.compute_for([1.0, 2.0, 3.0, 4.0, 5.0])
@@ -53,6 +47,5 @@ describe('AxesIoU compute method', () => {
         expect(sa.probe.max_x).toBeCloseTo(3.0)
         expect(sa.probe.max_y).toBeCloseTo(4.5)
         check_axes_box(sa.ref)
-
     })
 })

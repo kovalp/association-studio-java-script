@@ -11,7 +11,7 @@ npm update
 ### Serve
 
 ```shell
-npm run dev
+vite --host
 ```
 
 ## Deployment
@@ -21,3 +21,14 @@ npm run build
 npm run deploy
 ```
 
+## Test
+
+```shell
+vitest run [--coverage]
+```
+
+## Formatting
+
+```shell
+prettier -c src test [--write]
+```

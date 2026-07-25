@@ -3,7 +3,7 @@ class AxesBox {
     //     |      |
     //    min ----
 
-    constructor(xy_lw){
+    constructor(xy_lw) {
         this.area = 0.0
         this.min_x = 0.0
         this.max_x = 0.0
@@ -12,8 +12,8 @@ class AxesBox {
         this.set_state(xy_lw)
     }
 
-    set_state(xy_lw){
-        this.area = Number(xy_lw[2] * xy_lw[3]);
+    set_state(xy_lw) {
+        this.area = Number(xy_lw[2] * xy_lw[3])
 
         const hx = xy_lw[2] / 2
         this.min_x = xy_lw[0] - hx
@@ -25,4 +25,4 @@ class AxesBox {
     }
 }
 
-export {AxesBox};
+export { AxesBox }

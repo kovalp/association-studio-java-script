@@ -1,0 +1,6 @@
+# .prettierignore
+node_modules/
+dist/
+coverage/
+package-lock.json
+LICENSE
