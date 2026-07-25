@@ -17,13 +17,15 @@
     "type": "module",
     "devDependencies": {
         "@vitest/coverage-v8": "^4.1.10",
+        "canvas": "^3.2.3",
+        "dommatrix": "^0.1.1",
         "gh-pages": "^6.3.0",
         "jest-matcher-deep-close-to": "^3.0.2",
         "jsdom": "^29.1.1",
+        "pngjs": "^7.0.0",
         "prettier": "^3.9.6",
         "vite": "^8.1.5",
-        "vitest": "^4.1.10",
-        "vitest-canvas-mock": "^1.1.4"
+        "vitest": "^4.1.10"
     },
     "prettier": {
         "semi": false,

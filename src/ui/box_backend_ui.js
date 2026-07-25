@@ -1,5 +1,5 @@
-import { BboxHelper } from './bbox_helper.js'
-import { BboxPlot } from './bbox_plot.js'
+import { BboxHelper } from './box_helper.js'
+import { BboxPlot } from './box_plot.js'
 import { Screen } from './screen.js'
 import { get_cursor } from './mouse_cursor.js'
 import { get_angle } from '../rotations.js'
