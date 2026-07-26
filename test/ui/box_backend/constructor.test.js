@@ -1,10 +1,9 @@
-import {describe, it, expect, vi, beforeEach, afterEach} from 'vitest'
+import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest'
 import { BoxBackend } from '@/ui/box_backend'
-import { createCanvas, DOMMatrix, DOMPoint, CanvasRenderingContext2D} from "canvas";
-import {BoxHelper} from "@/ui/box_helper";
-import {Screen} from "@/ui/screen";
-import {BoxPlot} from "@/ui/box_plot";
-
+import { createCanvas, DOMMatrix, DOMPoint, CanvasRenderingContext2D } from 'canvas'
+import { BoxHelper } from '@/ui/box_helper'
+import { Screen } from '@/ui/screen'
+import { BoxPlot } from '@/ui/box_plot'
 
 describe('BoxBackend constructor', () => {
     beforeEach(() => {
@@ -17,9 +16,8 @@ describe('BoxBackend constructor', () => {
     })
 
     it('should have the attributes', () => {
-
         const canvas = createCanvas(640, 480)
-        const stage = document.createElement("div")
+        const stage = document.createElement('div')
         canvas.addEventListener = vi.fn()
         vi.spyOn(document, 'getElementById').mockImplementation((id) => {
             if (id === 'canvas-ui') {
@@ -31,7 +29,7 @@ describe('BoxBackend constructor', () => {
             }
         })
 
-        vi.spyOn(window, "addEventListener")
+        vi.spyOn(window, 'addEventListener')
         const bb = new BoxBackend('canvas-ui', 'red', [1.0, 2.0, 3.0, 4.0, 5.0])
 
         expect(bb.box).toBeInstanceOf(BoxHelper)
@@ -49,14 +47,13 @@ describe('BoxBackend constructor', () => {
         expect(bb.start_data_xy).toBeInstanceOf(DOMPoint)
         expect(window.addEventListener).toHaveBeenCalled()
         expect(canvas.addEventListener).toHaveBeenCalledTimes(3)
-        expect(canvas.addEventListener.mock.calls[0][0]).toBe("pointerdown")
+        expect(canvas.addEventListener.mock.calls[0][0]).toBe('pointerdown')
         expect(canvas.addEventListener.mock.calls[0][1]).toBeInstanceOf(Function)
 
-        expect(canvas.addEventListener.mock.calls[1][0]).toBe("pointermove")
+        expect(canvas.addEventListener.mock.calls[1][0]).toBe('pointermove')
         expect(canvas.addEventListener.mock.calls[1][1]).toBeInstanceOf(Function)
 
-        expect(canvas.addEventListener.mock.calls[2][0]).toBe("pointerup")
+        expect(canvas.addEventListener.mock.calls[2][0]).toBe('pointerup')
         expect(canvas.addEventListener.mock.calls[2][1]).toBeInstanceOf(Function)
-
     })
 })
