@@ -1,36 +1,13 @@
-import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest'
-import { BoxBackend } from '@/ui/box_backend'
-import { createCanvas, DOMMatrix, DOMPoint, CanvasRenderingContext2D } from 'canvas'
+import { describe, it, expect } from 'vitest'
+import { DOMPoint, CanvasRenderingContext2D } from 'canvas'
 import { BoxHelper } from '@/ui/box_helper'
 import { Screen } from '@/ui/screen'
 import { BoxPlot } from '@/ui/box_plot'
+import { get_bb } from './conftest'
 
 describe('BoxBackend constructor', () => {
-    beforeEach(() => {
-        vi.stubGlobal('DOMMatrix', DOMMatrix)
-        vi.stubGlobal('DOMPoint', DOMPoint)
-    })
-
-    afterEach(() => {
-        vi.unstubAllGlobals()
-    })
-
     it('should have the attributes', () => {
-        const canvas = createCanvas(640, 480)
-        const stage = document.createElement('div')
-        canvas.addEventListener = vi.fn()
-        vi.spyOn(document, 'getElementById').mockImplementation((id) => {
-            if (id === 'canvas-ui') {
-                return canvas
-            } else if (id === 'stage') {
-                return stage
-            } else {
-                return null
-            }
-        })
-
-        vi.spyOn(window, 'addEventListener')
-        const bb = new BoxBackend('canvas-ui', 'red', [1.0, 2.0, 3.0, 4.0, 5.0])
+        const { box_back: bb, canvas: canvas, stage: stage } = get_bb()
 
         expect(bb.box).toBeInstanceOf(BoxHelper)
         expect(bb.canvas === canvas).toBe(true)

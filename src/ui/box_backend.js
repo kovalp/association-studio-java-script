@@ -5,6 +5,11 @@ import { get_cursor } from './mouse_cursor'
 import { get_angle } from '@/rotations'
 
 class BoxBackend {
+    /**
+     * @param {String} canvas_id
+     * @param {String} box_style
+     * @param {Array<number>} xy_yaw_lw
+     * **/
     constructor(canvas_id, box_style, xy_yaw_lw) {
         this.canvas = document.getElementById(canvas_id)
         this.ctx = this.canvas.getContext('2d')
@@ -26,6 +31,10 @@ class BoxBackend {
         window.addEventListener('resize', this.resize_canvas_callback.bind(this))
     }
 
+    /**
+     * @param {BoxHelper} box_helper
+     * @param {MouseEvent} event
+     * **/
     change(box_helper, event) {
         if (this.is_in_box) {
             const dx = this.box.scale(event.offsetX - this.start_event.offsetX)
@@ -109,7 +118,7 @@ class BoxBackend {
     change_y(event) {
         this.update(() => this.box.set_y(Number(event.target.value)))
     }
-    change_len(event) {
+    change_len(event) c
         this.update(() => this.box.set_len(Number(event.target.value)))
     }
     change_wdt(event) {
