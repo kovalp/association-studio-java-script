@@ -1,4 +1,4 @@
-import { BoxBackendUi } from './ui/box_backend_ui.js'
+import { BoxBackend } from './ui/box_backend.js'
 import { ToolPanels } from './ui/tool_panels.js'
 import { AxesIoU } from './metrics/axes/score.js'
 import { MahalanobisScore } from './metrics/mahalanobis/score.js'
@@ -10,8 +10,8 @@ iou_score.set_ref(ori_state)
 mahalanobis_score.set_ref(ori_state)
 
 const ini_state = [0.5, -0.5, 0.0, 3.0, 1.5]
-const back_bg = new BoxBackendUi('stage-bg', '#00fa', ori_state)
-const back_ui = new BoxBackendUi('stage-ui', '#f0fa', ini_state)
+const back_bg = new BoxBackend('stage-bg', '#00fa', ori_state)
+const back_ui = new BoxBackend('stage-ui', '#f0fa', ini_state)
 const tool_panels = new ToolPanels()
 
 function set_state(xy_yaw_lw) {

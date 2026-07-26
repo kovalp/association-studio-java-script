@@ -1,10 +1,10 @@
-import { BoxHelper } from './box_helper.js'
-import { BoxPlot } from './box_plot.js'
-import { Screen } from './screen.js'
-import { get_cursor } from './mouse_cursor.js'
-import { get_angle } from '../rotations.js'
+import { BoxHelper } from './box_helper'
+import { BoxPlot } from './box_plot'
+import { Screen } from './screen'
+import { get_cursor } from './mouse_cursor'
+import { get_angle } from '@/rotations'
 
-class BoxBackendUi {
+class BoxBackend {
     constructor(canvas_id, box_style, xy_yaw_lw) {
         this.canvas = document.getElementById(canvas_id)
         this.ctx = this.canvas.getContext('2d')
@@ -130,4 +130,4 @@ class BoxBackendUi {
     }
 }
 
-export { BoxBackendUi }
+export { BoxBackend }
