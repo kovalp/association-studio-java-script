@@ -39,9 +39,9 @@ class ToolPanels {
 
     handle_key_down(event) {
         if (this.key_map[event.key] && event.target.tagName === 'BODY') {
-            const [normal_inp, alt_inp, dir] = this.key_map[event.key]
-            step_inp_num(event.altKey ? alt_inp : normal_inp, dir)
-        } else if (event.key == 'r') {
+            const [pos_inp, size_inp, dir] = this.key_map[event.key]
+            step_inp_num(event.shiftKey ? size_inp : pos_inp, dir)
+        } else if (event.key === 'r') {
             this.reset_btn.click()
         }
     }
