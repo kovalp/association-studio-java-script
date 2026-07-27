@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest'
 import { get_bb, get_bh } from './conftest'
 
-describe('BoxBackend change method', () => {
+describe('BoxBackend draw method', () => {
     it('should clear screen and then render the box', () => {
         const { box_back: bb } = get_bb()
         const bh = get_bh()
