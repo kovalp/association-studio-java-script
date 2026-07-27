@@ -27,8 +27,10 @@ function get_bb() {
     })
 
     vi.spyOn(window, 'addEventListener')
+    let bb = new BoxBackend('canvas-ui', 'red', [1.0, 2.0, 3.0, 4.0, 5.0])
+    vi.spyOn(bb, 'draw')
     return {
-        box_back: new BoxBackend('canvas-ui', 'red', [1.0, 2.0, 3.0, 4.0, 5.0]),
+        box_back: bb,
         canvas: canvas,
         stage: stage,
         event: { offsetX: 360, offsetY: 160, target: { style: { cursor: '' }, value: 1.23 } },

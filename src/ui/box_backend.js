@@ -115,12 +115,15 @@ class BoxBackend {
     change_x(event) {
         this.update(() => this.box.set_x(Number(event.target.value)))
     }
+
     change_y(event) {
         this.update(() => this.box.set_y(Number(event.target.value)))
     }
+
     change_len(event) {
         this.update(() => this.box.set_len(Number(event.target.value)))
     }
+
     change_wdt(event) {
         this.update(() => this.box.set_wdt(Number(event.target.value)))
     }

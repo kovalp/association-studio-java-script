@@ -60,4 +60,4 @@ class ToolPanels {
     }
 }
 
-export { ToolPanels }
+export { ToolPanels, step_inp_num }
