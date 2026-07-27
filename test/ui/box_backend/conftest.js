@@ -31,10 +31,12 @@ function get_bb() {
         box_back: new BoxBackend('canvas-ui', 'red', [1.0, 2.0, 3.0, 4.0, 5.0]),
         canvas: canvas,
         stage: stage,
+        event: { offsetX: 360, offsetY: 160, target: { style: { cursor: '' }, value: 1.23 } },
     }
 }
 
 function get_bh() {
     return new BoxHelper([1.0, 2.0, 3.0, 4.0, 5.0], 640, 480)
 }
+
 export { get_bb, get_bh }
