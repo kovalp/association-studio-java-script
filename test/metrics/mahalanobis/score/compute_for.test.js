@@ -1,7 +1,6 @@
 import { describe, it, expect } from 'vitest'
 import { get_score_aux } from './conftest'
 
-
 describe('compute_for method', () => {
     it('should redefine the probe box and compute the score', () => {
         const sa = get_score_aux()

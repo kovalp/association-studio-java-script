@@ -11,7 +11,7 @@ const tool_panels = new ToolPanels()
 
 function set_state(xy_yaw_lw) {
     tool_panels.set_state(xy_yaw_lw)
-    const {giou: giou, maha: maha} = score_driver.compute_for(xy_yaw_lw)
+    const { giou: giou, maha: maha } = score_driver.compute_for(xy_yaw_lw)
     tool_panels.set_scores(giou, maha)
     tool_panels.set_maha_parameters(score_driver.mahalanobis_score.pair)
 }

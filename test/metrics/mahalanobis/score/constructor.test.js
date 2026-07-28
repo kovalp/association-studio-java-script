@@ -3,7 +3,6 @@ import { get_score_aux } from './conftest.js'
 import { MahalanobisBox } from '@/metrics/mahalanobis/item.js'
 import { MahalanobisPair } from '@/metrics/mahalanobis/pair.js'
 
-
 describe('constructor', () => {
     it('should have the attributes', () => {
         const sa = get_score_aux()

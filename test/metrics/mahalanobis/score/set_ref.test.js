@@ -1,4 +1,4 @@
-    import { describe, it, expect } from 'vitest'
+import { describe, it, expect } from 'vitest'
 import { get_score_aux } from './conftest'
 
 describe('set_ref method', () => {

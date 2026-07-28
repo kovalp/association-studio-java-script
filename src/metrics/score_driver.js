@@ -14,17 +14,17 @@ class ScoreDriver {
      * @param {Array<number>} xy_yaw_lw
      * @returns {{giou: number, maha: number}}
      */
-    compute_for(xy_yaw_lw){
+    compute_for(xy_yaw_lw) {
         const giou = this.iou_score.compute_for(xy_yaw_lw)
         const maha = this.mahalanobis_score.compute_for(xy_yaw_lw)
-        return {giou, maha}
+        return { giou, maha }
     }
 
     /**
      * @param {number} value
      * @param {'precision-pos' | 'precision-yaw' | 'precision-size'} name
      */
-    set_precision(value, name){
+    set_precision(value, name) {
         this.mahalanobis_score.set_precision(value, name)
     }
 }

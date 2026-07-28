@@ -32,7 +32,7 @@ class MahalanobisScore {
      * @param {number} value
      * @param {'precision-pos' | 'precision-yaw' | 'precision-size'} name
      */
-    set_precision(value, name){
+    set_precision(value, name) {
         if (name === 'precision-pos') {
             this.pair.dia_inv_cov[0] = Number(value)
             this.pair.dia_inv_cov[1] = Number(value)
