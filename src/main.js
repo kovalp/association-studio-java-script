@@ -31,8 +31,7 @@ tool_panels.reset_btn.addEventListener('click', () => {
 })
 
 function change_mahalanobis_precision(event) {
-    const t = event.target
-    score_driver.set_precision(Number(t.value), t.id)
+    score_driver.set_precision(Number(event.target.value), event.target.id)
     set_state(back_ui.box.xy_yaw_lw)
 }
 
