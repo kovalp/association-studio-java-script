@@ -1,7 +1,7 @@
-import { BoxBackend } from './ui/box_backend.js'
-import { ToolPanels } from './ui/tool_panels.js'
-import { AxesIoU } from './metrics/axes/score.js'
-import { MahalanobisScore } from './metrics/mahalanobis/score.js'
+import { BoxBackend } from '@/ui/box_backend.js'
+import { ToolPanels } from '@/ui/tool_panels.js'
+import { AxesIoU } from '@/metrics/axes/score.js'
+import { MahalanobisScore } from '@/metrics/mahalanobis/score.js'
 
 const iou_score = new AxesIoU()
 const mahalanobis_score = new MahalanobisScore()
