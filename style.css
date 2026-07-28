@@ -53,7 +53,6 @@ canvas {
     z-index: 1;
 }
 
-/* Tool Panel Base Styling */
 .tool-panel {
     display: flex;
     background-color: #22262c;
@@ -63,7 +62,6 @@ canvas {
     padding: 4px 8px;
 }
 
-/* --- Top Panel Bar --- */
 #top-panel {
     grid-column: 1 / span 2;
     grid-row: 1;
@@ -110,8 +108,20 @@ input[type='number'] {
     justify-content: flex-start;
     gap: 8px;
     padding: 8px;
-    width: 190px;
+    width: 16rem;
+    max-height: 100%;
+    overflow-y: auto;
 }
+
+#explain-mahalanobis-panel {
+    display: none;
+    flex-direction: column;
+    gap: 4px;
+    padding: 4px;
+    color: #007acc;
+    width: 100%;
+}
+
 
 .tool-panel button {
     font-family: 'Segoe UI', sans-serif;
@@ -156,16 +166,9 @@ input[type='number'] {
 #score-val1 {
     color: #f96;
 }
+
 #score-val2 {
     color: #89f;
-}
-
-#explain-mahalanobis-panel {
-    display: none;
-    gap: 4px;
-    padding: 4px;
-    max-width: 12rem;
-    color: #007acc;
 }
 
 #orientation-warning {

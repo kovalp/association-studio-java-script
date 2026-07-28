@@ -135,6 +135,7 @@ class BoxBackend {
 
     resize_canvas_callback() {
         const rect = this.stage.getBoundingClientRect()
+        console.log(rect.width, rect.height, rect.x, rect.y)
         this.canvas.width = rect.width
         this.canvas.height = rect.height
         this.box.set_canvas_size(rect.width, rect.height)
