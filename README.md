@@ -1,4 +1,4 @@
-# Association Studio JavaScript
+[README.md](README.md)# Association Studio JavaScript
 
 Association metrics in multi-target tracking
 
