@@ -1,35 +1,30 @@
-function step_inp_num(inp, direction) {
-    inp.value = Number(inp.value) + direction * Number(inp.step)
-    inp.dispatchEvent(new Event('change', { bubbles: true }))
-}
-
 class ToolPanels {
-    constructor() {
-        this.reset_btn = document.getElementById('reset-btn')
-        this.score_val1 = document.getElementById('score-val1')
-        this.score_val2 = document.getElementById('score-val2')
-        this.inp_x = document.getElementById('inp-x')
-        this.inp_y = document.getElementById('inp-y')
-        this.inp_yaw = document.getElementById('inp-yaw')
-        this.inp_len = document.getElementById('inp-len')
-        this.inp_wdt = document.getElementById('inp-wdt')
-        window.addEventListener('keydown', this.handle_key_down.bind(this))
+    constructor(root = document) {
+        this.reset_btn = root.querySelector('#reset-btn')
+        this.score_val1 = root.querySelector('#score-val1')
+        this.score_val2 = root.querySelector('#score-val2')
+        this.inp_x = root.querySelector('#inp-x')
+        this.inp_y = root.querySelector('#inp-y')
+        this.inp_yaw = root.querySelector('#inp-yaw')
+        this.inp_len = root.querySelector('#inp-len')
+        this.inp_wdt = root.querySelector('#inp-wdt')
+        document.body.addEventListener('keydown', this.handle_key_down.bind(this))
         this.key_map = {
             ArrowUp: [this.inp_y, this.inp_wdt, 1.0],
             ArrowDown: [this.inp_y, this.inp_wdt, -1.0],
             ArrowRight: [this.inp_x, this.inp_len, 1.0],
             ArrowLeft: [this.inp_x, this.inp_len, -1.0],
         }
-        this.explain_maha_chk_btn = document.getElementById('explain-mahalanobis-chk-btn')
-        this.explain_maha_chk_btn.addEventListener('click', this.explain_maha_panel_show.bind(this))
-        this.explain_maha_panel = document.getElementById('explain-mahalanobis-panel')
-        this.inp_precision_pos = document.getElementById('precision-pos')
-        this.inp_precision_yaw = document.getElementById('precision-yaw')
-        this.inp_precision_size = document.getElementById('precision-size')
-        this.sqr_pos_diff = document.getElementById('sqr-pos-diff')
-        this.sqr_yaw_diff = document.getElementById('sqr-yaw-diff')
-        this.sqr_size_diff = document.getElementById('sqr-size-diff')
-        this.sqr_maha_dist = document.getElementById('sqr-maha-dist')
+        this.explain_maha_chk_box = root.querySelector('#explain-mahalanobis-chk-box')
+        this.explain_maha_chk_box.addEventListener('click', this.explain_maha_panel_show.bind(this))
+        this.explain_maha_panel = root.querySelector('#explain-mahalanobis-panel')
+        this.inp_precision_pos = root.querySelector('#precision-pos')
+        this.inp_precision_yaw = root.querySelector('#precision-yaw')
+        this.inp_precision_size = root.querySelector('#precision-size')
+        this.sqr_pos_diff = root.querySelector('#sqr-pos-diff')
+        this.sqr_yaw_diff = root.querySelector('#sqr-yaw-diff')
+        this.sqr_size_diff = root.querySelector('#sqr-size-diff')
+        this.sqr_maha_dist = root.querySelector('#sqr-maha-dist')
     }
 
     explain_maha_panel_show(event) {
@@ -40,10 +35,19 @@ class ToolPanels {
     handle_key_down(event) {
         if (this.key_map[event.key] && event.target.tagName === 'BODY') {
             const [normal_inp, alt_inp, dir] = this.key_map[event.key]
-            step_inp_num(event.altKey ? alt_inp : normal_inp, dir)
+            this.step_inp_num(event.ctrlKey ? alt_inp : normal_inp, dir)
         } else if (event.key == 'r') {
             this.reset_btn.click()
         }
+    }
+
+    /**
+     *  @param {HTMLElement} inp -- the input element of type number.
+     *  @param {number} direction -- +1 or -1 to indicate the increment or decrement.
+     **/
+    step_inp_num(inp, direction) {
+        inp.value = String(Number(inp.value) + direction * Number(inp.step))
+        inp.dispatchEvent(new Event('change', { bubbles: true }))
     }
 
     set_scores(val1, val2) {
@@ -60,4 +64,4 @@ class ToolPanels {
     }
 }
 
-export { ToolPanels, step_inp_num }
+export { ToolPanels }

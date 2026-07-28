@@ -2,7 +2,7 @@ import { MahalanobisBox } from './item.js'
 
 class MahalanobisPair {
     constructor() {
-        this.dia_inv_cov = new Float32Array([1.5, 1.5, 4, 4, 2, 2])
+        this.dia_inv_cov = new Float32Array([1.5, 1.5, 4, 4, 1, 1])
         this.sqr_pos_diff = 0.0
         this.sqr_yaw_diff = 0.0
         this.sqr_size_diff = 0.0
