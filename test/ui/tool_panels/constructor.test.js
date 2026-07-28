@@ -1,6 +1,5 @@
 import { describe, it, expect, vi } from 'vitest'
 import { get_tp } from './conftest'
-import { step_inp_num } from '@/ui/tool_panels'
 
 describe('Constructor of the ToolPanels', () => {
     it('defines all the attributes', () => {
@@ -28,7 +27,6 @@ describe('Constructor of the ToolPanels', () => {
         tp.explain_maha_chk_box.click()
         expect(tp.explain_maha_panel.style.display).toBe('none')
 
-        vi.spyOn(tp, 'step_inp_num')
         document.body.dispatchEvent(new KeyboardEvent('keydown', { key: 'ArrowUp' }))
         expect(tp.step_inp_num).toHaveBeenCalledWith(tp.inp_y, 1)
     })

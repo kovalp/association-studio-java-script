@@ -16,7 +16,7 @@ class ToolPanels {
             ArrowLeft: [this.inp_x, this.inp_len, -1.0],
         }
         this.explain_maha_chk_box = root.querySelector('#explain-mahalanobis-chk-box')
-        this.explain_maha_chk_box.addEventListener('click', this.explain_maha_panel_show.bind(this))
+        this.explain_maha_chk_box.addEventListener('click', this.handle_maha_panel_show.bind(this))
         this.explain_maha_panel = root.querySelector('#explain-mahalanobis-panel')
         this.inp_precision_pos = root.querySelector('#precision-pos')
         this.inp_precision_yaw = root.querySelector('#precision-yaw')
@@ -27,7 +27,7 @@ class ToolPanels {
         this.sqr_maha_dist = root.querySelector('#sqr-maha-dist')
     }
 
-    explain_maha_panel_show(event) {
+    handle_maha_panel_show(event) {
         const display = event.target.checked ? 'flex' : 'none'
         this.explain_maha_panel.style.display = display
     }
