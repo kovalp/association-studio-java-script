@@ -3,6 +3,7 @@
 ## 1.4.0
 
 - ScoreDriver class to diminish the `main.js`
+- The explanatory panel does not overfill the whole window.
 
 ## 1.3.0
 
