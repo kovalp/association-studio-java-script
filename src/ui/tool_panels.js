@@ -62,6 +62,17 @@ class ToolPanels {
         this.inp_len.value = xy_yaw_lw[3].toFixed(2)
         this.inp_wdt.value = xy_yaw_lw[4].toFixed(2)
     }
+
+    /**
+     *
+     * @param {{sqr_pos_diff: number, sqr_yaw_diff: number, sqr_size_diff: number, sqr_maha_dist: number}} pp
+     */
+    set_maha_parameters(pp){
+        this.sqr_pos_diff.textContent =  pp.sqr_pos_diff.toFixed(2)
+        this.sqr_yaw_diff.textContent =  pp.sqr_yaw_diff.toFixed(2)
+        this.sqr_size_diff.textContent = pp.sqr_size_diff.toFixed(2)
+        this.sqr_maha_dist.textContent = pp.sqr_maha_dist.toFixed(3)
+    }
 }
 
 export { ToolPanels }
