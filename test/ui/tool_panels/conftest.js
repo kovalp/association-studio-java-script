@@ -1,5 +1,5 @@
 import { ToolPanels } from '@/ui/tool_panels.js'
-import {vi} from "vitest";
+import { vi } from 'vitest'
 
 const fixture = document.createElement('div')
 fixture.innerHTML = `
@@ -26,7 +26,7 @@ fixture.innerHTML = `
 
 function get_tp() {
     const tp = new ToolPanels(fixture)
-    vi.spyOn(tp, "step_inp_num")
+    vi.spyOn(tp, 'step_inp_num')
     return tp
 }
 
