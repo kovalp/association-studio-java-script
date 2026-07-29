@@ -3,9 +3,10 @@
 ## 1.5.0
 
 - Internal improvements:
-  - Simplify the BoxBackend
-  - Use Frontend class
-
+    - Simplify the BoxBackend
+    - Use Frontend class
+    - Use run function together with main function
+    - Coverage is 100% with two explicitly omitted lines in `main.js`
 
 ## 1.4.0
 

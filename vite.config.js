@@ -17,7 +17,6 @@ export default defineConfig({
             provider: 'v8', // or 'istanbul'
             reporter: ['text', 'json', 'html'], // Formats to generate
             include: ['src/**/*.js'], // Only measure source code
-            exclude: ['src/index.js'], // Ignore entrypoints/tests
 
             // Optional: Fail test suite if coverage drops below thresholds
             thresholds: {

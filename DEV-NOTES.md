@@ -30,5 +30,5 @@ vitest run [--coverage]
 ## Formatting
 
 ```shell
-prettier -c src test [--write]
+npm run format
 ```

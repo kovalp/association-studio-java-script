@@ -30,7 +30,7 @@ class Frontend {
         this.panels.inp_precision_yaw.addEventListener('change', this.change_precision.bind(this))
         this.panels.inp_precision_size.addEventListener('change', this.change_precision.bind(this))
 
-        this.stage = document.getElementById('stage')
+        this.stage = root.querySelector('#stage')
         window.addEventListener('resize', this.resize_canvas_callback.bind(this))
         this.resize_canvas_callback()
     }

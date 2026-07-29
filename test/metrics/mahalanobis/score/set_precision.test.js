@@ -12,5 +12,8 @@ describe('set_precision method', () => {
 
         sa.set_precision(3.45, 'precision-size')
         expect(sa.pair.dia_inv_cov).toBeDeepCloseTo([1.23, 1.23, 2.34, 2.34, 3.45, 3.45])
+
+        sa.set_precision(3.45, 'bogus')
+        expect(sa.pair.dia_inv_cov).toBeDeepCloseTo([1.23, 1.23, 2.34, 2.34, 3.45, 3.45])
     })
 })
