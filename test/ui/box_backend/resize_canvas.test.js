@@ -1,13 +1,10 @@
 import { describe, it, expect } from 'vitest'
 import { get_bb, get_bh } from './conftest'
 
-describe('BoxBackend resize canvas callback', () => {
+describe('BoxBackend resize canvas method', () => {
     it('should correctly update internals and redraw ', () => {
         const { box_back: bb } = get_bb()
-        bb.stage.getBoundingClientRect = () => {
-            return new DOMRect(0, 0, 800, 600)
-        }
-        bb.resize_canvas_callback()
+        bb.resize_canvas(new DOMRect(0, 0, 800, 600))
         expect(bb.canvas.width).toEqual(800)
         expect(bb.canvas.height).toEqual(600)
         // prettier-ignore

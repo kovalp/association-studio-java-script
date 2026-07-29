@@ -7,12 +7,11 @@ import { get_bb } from './conftest'
 
 describe('BoxBackend constructor', () => {
     it('should have the attributes', () => {
-        const { box_back: bb, canvas: canvas, stage: stage } = get_bb()
+        const { box_back: bb, canvas: canvas } = get_bb()
 
         expect(bb.box).toBeInstanceOf(BoxHelper)
         expect(bb.canvas === canvas).toBe(true)
         expect(bb.ctx).toBeInstanceOf(CanvasRenderingContext2D)
-        expect(bb.stage === stage).toBe(true)
         expect(bb.screen).toBeInstanceOf(Screen)
         expect(bb.box_plt).toBeInstanceOf(BoxPlot)
         expect(bb.is_dragging).toBe(false)
@@ -22,7 +21,6 @@ describe('BoxBackend constructor', () => {
         expect(bb.is_in_edge_y).toBe(false)
         expect(bb.start_event).toBeInstanceOf(MouseEvent)
         expect(bb.start_data_xy).toBeInstanceOf(DOMPoint)
-        expect(window.addEventListener).toHaveBeenCalled()
         expect(canvas.addEventListener).toHaveBeenCalledTimes(3)
         expect(canvas.addEventListener.mock.calls[0][0]).toBe('pointerdown')
         expect(canvas.addEventListener.mock.calls[0][1]).toBeInstanceOf(Function)

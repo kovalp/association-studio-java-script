@@ -6,15 +6,14 @@ import { get_angle } from '@/rotations'
 
 class BoxBackend {
     /**
-     * @param {String} canvas_id
-     * @param {String} box_style
+     * @param {HTMLCanvasElement} canvas
+     * @param {string} box_style
      * @param {Array<number>} xy_yaw_lw
      * **/
-    constructor(canvas_id, box_style, xy_yaw_lw) {
-        this.canvas = document.getElementById(canvas_id)
-        this.ctx = this.canvas.getContext('2d')
-        this.stage = document.getElementById('stage')
-        this.screen = new Screen(this.canvas, this.ctx)
+    constructor(canvas, box_style, xy_yaw_lw) {
+        this.canvas = canvas
+        this.ctx = canvas.getContext('2d')
+        this.screen = new Screen(canvas, this.ctx)
         this.box_plt = new BoxPlot(box_style)
         this.box = new BoxHelper(xy_yaw_lw, 640, 480)
         this.box_plt.draw(this.ctx, this.box)
@@ -25,10 +24,9 @@ class BoxBackend {
         this.is_in_edge_y = false
         this.start_event = new MouseEvent('', undefined)
         this.start_data_xy = new DOMPoint(0, 0)
-        this.canvas.addEventListener('pointerdown', this.mouse_down_callback.bind(this))
-        this.canvas.addEventListener('pointermove', this.mouse_move_callback.bind(this))
-        this.canvas.addEventListener('pointerup', this.mouse_up_callback.bind(this))
-        window.addEventListener('resize', this.resize_canvas_callback.bind(this))
+        canvas.addEventListener('pointerdown', this.mouse_down_callback.bind(this))
+        canvas.addEventListener('pointermove', this.mouse_move_callback.bind(this))
+        canvas.addEventListener('pointerup', this.mouse_up_callback.bind(this))
     }
 
     /**
@@ -133,8 +131,10 @@ class BoxBackend {
         this.draw()
     }
 
-    resize_canvas_callback() {
-        const rect = this.stage.getBoundingClientRect()
+    /**
+     * @param {DOMRect} rect
+     */
+    resize_canvas(rect) {
         this.canvas.width = rect.width
         this.canvas.height = rect.height
         this.box.set_canvas_size(rect.width, rect.height)

@@ -5,13 +5,13 @@ class ScoreDriver {
     constructor() {
         this.iou_score = new AxesIoU()
         this.mahalanobis_score = new MahalanobisScore()
-        this.ori_state = new Float32Array([0.0, 0.0, 0.0, 3.0, 1.5])
+        this.ori_state = [0.0, 0.0, 0.0, 3.0, 1.5]
         this.iou_score.set_ref(this.ori_state)
         this.mahalanobis_score.set_ref(this.ori_state)
     }
 
     /**
-     * @param {Array<number>} xy_yaw_lw
+     * @param {Float32Array} xy_yaw_lw
      * @returns {{giou: number, maha: number}}
      */
     compute_for(xy_yaw_lw) {
