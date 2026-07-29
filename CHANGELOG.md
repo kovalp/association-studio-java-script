@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.5.0
+
+- Internal improvements:
+  - Simplify the BoxBackend
+  - Use Frontend class
+
+
 ## 1.4.0
 
 - ScoreDriver class to diminish the `main.js`
