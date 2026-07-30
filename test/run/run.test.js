@@ -1,11 +1,12 @@
 import { describe, it, expect } from 'vitest'
 import { run } from '@/run'
-import { fixture } from './conftest'
+import { index_fixture } from '../setup.js'
 import { Frontend } from '@/ui/frontend'
+import './conftest.js'
 
 describe('run', () => {
     it('should run correctly', () => {
-        const front = run(fixture)
+        const front = run(index_fixture)
         expect(front).toBeInstanceOf(Frontend)
     })
 })

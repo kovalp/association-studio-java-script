@@ -9,6 +9,41 @@
         <title>Association score demo.</title>
         <link rel="stylesheet" href="style.css" />
     </head>
+
+    <dialog id="keyboard-shortcuts-modal" class="modal">
+        <div class="modal-header">
+            <h3>Keyboard Shortcuts</h3>
+            <button type="button" class="close-btn" id="keyboard-shortcuts-modal-close-btn">
+                &times;
+            </button>
+        </div>
+
+        <div class="modal-body">
+            <ul>
+                <li><kbd>R</kbd> reset the <i>probe</i> box</li>
+                <li><kbd>Arrow keys</kbd> move the probe box</li>
+                <li><kbd>Ctrl+Arrow keys</kbd> scale the probe box</li>
+            </ul>
+        </div>
+    </dialog>
+
+    <dialog id="about-modal" class="modal">
+        <div class="modal-header">
+            <h3>Association studio</h3>
+            <button type="button" class="close-btn" id="about-modal-close-btn">&times;</button>
+        </div>
+
+        <div class="modal-body">
+            Calculate the association score between two bounding boxes.
+
+            <p>Two metrics are compared:</p>
+            <ul>
+                <li>GIoU: generalized intersection over union</li>
+                <li>MAHA: Gaussian of the Mahalanobis-distance with static diagonal covariance</li>
+            </ul>
+        </div>
+    </dialog>
+
     <body>
         <div id="orientation-warning">Please rotate your device to landscape mode.</div>
 
@@ -74,6 +109,26 @@
                         step="0.5"
                         title="Box Width (size y)"
                     />
+                </div>
+
+                <div class="menu-container" id="main-menu-container">
+                    <button
+                        class="waffle-btn-grid"
+                        aria-label="Apps menu"
+                        title="Main menu"
+                        id="main-menu-btn"
+                    >
+                        <div class="grid">
+                            <span></span><span></span><span></span> <span></span><span></span
+                            ><span></span> <span></span><span></span><span></span>
+                        </div>
+                    </button>
+                    <div id="main-menu-div" class="main-menu-div hidden">
+                        <div class="menu-item" id="main-menu-about">About...</div>
+                        <div class="menu-item" id="main-menu-keyboard-shortcuts">
+                            Keyboard shortcuts...
+                        </div>
+                    </div>
                 </div>
             </div>
 
