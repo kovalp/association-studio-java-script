@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.0.0
+
+- Added a waffle menu with 
+    - Keyboard shortcuts modal
+    - About modal
+
 ## 1.5.0
 
 - Internal improvements:
