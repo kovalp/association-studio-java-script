@@ -329,3 +329,8 @@ kbd {
     font-family: monospace;
     color: #00ffff;
 }
+
+.version {
+    font-size: 0.789rem;
+    color: greenyellow;
+}

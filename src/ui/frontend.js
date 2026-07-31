@@ -3,6 +3,7 @@ import { BoxBackend } from '@/ui/box_backend.js'
 import { ScoreDriver } from '@/metrics/score_driver.js'
 import { MainMenu } from '@/ui/main_menu.js'
 import { Dialog } from '@/ui/dialog.js'
+import { version } from '../../package.json'
 
 class Frontend {
     /**
@@ -38,10 +39,12 @@ class Frontend {
         this.main_menu = new MainMenu(root)
         this.keyboard_shortcuts_dialog = new Dialog(root, 'keyboard-shortcuts')
         this.about_dialog = new Dialog(root, 'about')
+        root.querySelector('#version-number').innerHTML = version
         this.main_menu.action_callback_map['main-menu-keyboard-shortcuts'] =
-            this.keyboard_shortcuts_dialog.open_shortcuts_modal.bind(this.keyboard_shortcuts_dialog)
-        this.main_menu.action_callback_map['main-menu-about'] =
-            this.about_dialog.open_shortcuts_modal.bind(this.about_dialog)
+            this.keyboard_shortcuts_dialog.open_modal.bind(this.keyboard_shortcuts_dialog)
+        this.main_menu.action_callback_map['main-menu-about'] = this.about_dialog.open_modal.bind(
+            this.about_dialog,
+        )
     }
 
     /**

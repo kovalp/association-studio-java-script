@@ -5,7 +5,7 @@ export default defineConfig({
     base: '/association-studio-java-script/',
     resolve: {
         alias: {
-            '@': path.resolve(__dirname, './src'),
+            '@': path.resolve(import.meta.dirname, './src'),
         },
     },
     test: {

@@ -43,6 +43,7 @@ index_fixture.innerHTML = `
 
     <dialog id="about-modal">
         <button type="button" id="about-modal-close-btn">&times;</button>
+        <span id="version-number"></span>
     </dialog>
 `
 

@@ -2,9 +2,9 @@
 
 ## 2.0.0
 
-- Added a waffle menu with 
-    - Keyboard shortcuts modal
-    - About modal
+- Added a waffle menu with
+    - A keyboard-shortcuts modal window to show the notes
+    - About modal to show the notes
 
 ## 1.5.0
 
