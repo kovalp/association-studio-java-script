@@ -23,5 +23,4 @@ describe('click listener on the items element', () => {
         }
         menu.main_menu_div.dispatchEvent(new PointerEvent('click'))
     })
-
 })
