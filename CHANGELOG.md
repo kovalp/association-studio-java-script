@@ -3,6 +3,7 @@
 ## 2.0.0
 
 - Version number in the About dialog.
+- Fix the MAHA score-card.
 
 ## 2.0.0
 
