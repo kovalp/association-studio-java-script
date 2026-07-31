@@ -2,9 +2,14 @@
 
 ## 2.0.0
 
-- Added a waffle menu with
-    - A keyboard-shortcuts modal window to show the notes
-    - About modal to show the notes
+- Version number in the About dialog.
+
+
+## 2.0.0
+
+- Added a waffle menu with:
+    - a keyboard-shortcuts modal window to show the notes.
+    - an "about" dialog to show the notes.
 
 ## 1.5.0
 
