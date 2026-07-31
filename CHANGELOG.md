@@ -4,7 +4,6 @@
 
 - Version number in the About dialog.
 
-
 ## 2.0.0
 
 - Added a waffle menu with:
