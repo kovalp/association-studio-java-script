@@ -275,7 +275,6 @@ input[type='number'] {
     background-color: #007acc;
 }
 
-/* Styling the dialog container */
 .modal {
     border: 1px solid #3e4451;
     border-radius: 8px;
@@ -287,7 +286,6 @@ input[type='number'] {
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
 }
 
-/* Native backdrop overlay (dims the rest of the app) */
 .modal::backdrop {
     background-color: rgba(0, 0, 0, 0.65);
     backdrop-filter: blur(2px); /* Optional background blur */
@@ -333,4 +331,18 @@ kbd {
 .version {
     font-size: 0.789rem;
     color: greenyellow;
+}
+
+#plot-scores {
+    opacity: 1;
+    visibility: visible;
+    z-index: 2;
+    color: white;
+}
+
+.plot.hidden {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(18px);
+    pointer-events: none;
 }

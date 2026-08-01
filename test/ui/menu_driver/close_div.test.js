@@ -5,7 +5,7 @@ describe('click listener on the root', () => {
     it('closes the items rectangle', () => {
         const { menu } = get_menu()
         menu.main_menu_div.classList.remove('hidden')
-        menu.close_menu_outside_click()
+        menu.close_div()
         expect(menu.main_menu_div.classList.contains('hidden')).toBe(true)
     })
 })

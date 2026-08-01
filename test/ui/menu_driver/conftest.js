@@ -1,4 +1,4 @@
-import { MainMenu } from '@/ui/main_menu.js'
+import { MenuDriver } from '@/ui/menu_driver.js'
 
 function get_menu() {
     const root = document.createElement('div')
@@ -9,7 +9,7 @@ function get_menu() {
     <div class="menu-item" id="main-menu-keyboard-shortcuts">Keyboard shortcuts...</div>
 </div>`
 
-    const menu = new MainMenu(root)
+    const menu = new MenuDriver(root)
     return { menu, root }
 }
 

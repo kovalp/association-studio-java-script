@@ -28,21 +28,20 @@ class ToolPanels {
     }
 
     handle_maha_panel_show(event) {
-        const display = event.target.checked ? 'flex' : 'none'
-        this.explain_maha_panel.style.display = display
+        this.explain_maha_panel.style.display = event.target.checked ? 'flex' : 'none'
     }
 
     handle_key_down(event) {
         if (this.key_map[event.key] && event.target.tagName === 'BODY') {
             const [normal_inp, alt_inp, dir] = this.key_map[event.key]
             this.step_inp_num(event.ctrlKey ? alt_inp : normal_inp, dir)
-        } else if (event.key == 'r') {
+        } else if (event.key === 'r') {
             this.reset_btn.click()
         }
     }
 
     /**
-     *  @param {HTMLElement} inp -- the input element of type number.
+     *  @param {HTMLInputElement} inp -- the input element of type number.
      *  @param {number} direction -- +1 or -1 to indicate the increment or decrement.
      **/
     step_inp_num(inp, direction) {

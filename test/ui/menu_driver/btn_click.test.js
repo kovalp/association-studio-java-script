@@ -6,7 +6,7 @@ describe('click listener on the button', () => {
         const { menu } = get_menu()
         let event = new PointerEvent('click')
         vi.spyOn(event, 'stopPropagation')
-        menu.main_menu_btn_click(event)
+        menu.btn_click(event)
         expect(event.stopPropagation).toHaveBeenCalledTimes(1)
         expect(menu.main_menu_div.classList.contains('hidden')).toBe(false)
     })
