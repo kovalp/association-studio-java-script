@@ -5,7 +5,7 @@ describe('set_precision method', () => {
     it('should set the precision elements properly', () => {
         const sa = get_score_aux()
         sa.set_precision(1.23, 'precision-pos')
-        expect(sa.pair.dia_inv_cov).toBeDeepCloseTo([1.23, 1.23, 4.0, 4.0, 1.0, 1.0])
+        expect(sa.pair.dia_inv_cov).toBeDeepCloseTo([1.23, 1.23, 2.0, 2.0, 1.0, 1.0])
 
         sa.set_precision(2.34, 'precision-yaw')
         expect(sa.pair.dia_inv_cov).toBeDeepCloseTo([1.23, 1.23, 2.34, 2.34, 1.0, 1.0])

@@ -5,6 +5,8 @@ describe('compute_for method', () => {
     it('should redefine the probe box and compute the score', () => {
         const sa = get_score_aux()
         const id_before = sa.probe.xy_cs_lw
+        sa.pair.dia_inv_cov[2] = 4.0
+        sa.pair.dia_inv_cov[3] = 4.0
         const score = sa.compute_for([1.4, 2.3, 0.123, 3.2, 4.1])
         expect(sa.probe.xy_cs_lw === id_before).toBe(true)
         expect(sa.probe.xy_cs_lw).toBeDeepCloseTo([

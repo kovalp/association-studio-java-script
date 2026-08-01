@@ -4,7 +4,7 @@
 
 - Internal refactoring
 - Cyan color for the self-biting arrow.
-
+- Change default value of the yaw precision from 4 to 2.
 
 ## 2.1.0
 
