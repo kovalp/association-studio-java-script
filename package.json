@@ -35,6 +35,6 @@
         "printWidth": 100
     },
     "dependencies": {
-        "plotly.js": "^3.7.0"
+        "chart.js": "^4.5.1"
     }
 }
