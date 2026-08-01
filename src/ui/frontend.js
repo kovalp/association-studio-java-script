@@ -42,9 +42,11 @@ class Frontend {
     }
 
     add_inp_listeners_precision() {
-        this.panels.inp_precision_pos.addEventListener('change', this.change_precision.bind(this))
-        this.panels.inp_precision_yaw.addEventListener('change', this.change_precision.bind(this))
-        this.panels.inp_precision_size.addEventListener('change', this.change_precision.bind(this))
+        const panels = this.panels
+        const callback_bind = this.change_precision.bind(this)
+        panels.inp_precision_pos.addEventListener('change', callback_bind)
+        panels.inp_precision_yaw.addEventListener('change', callback_bind)
+        panels.inp_precision_size.addEventListener('change', callback_bind)
     }
 
     change_precision(event) {
