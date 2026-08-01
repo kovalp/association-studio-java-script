@@ -1,5 +1,9 @@
 # Changelog
 
+## 3.0.0
+
+- Add chart of the scores (line chart adding a point to GIoU and MAHA curves on every change.)
+
 ## 2.2.0
 
 - Internal refactoring
