@@ -45,6 +45,8 @@ index_fixture.innerHTML = `
         <button type="button" id="about-modal-close-btn">&times;</button>
         <span id="version-number"></span>
     </dialog>
+    
+    <div class="chart-container"><canvas id="plot-scores"></canvas></div>
 `
 
 export { index_fixture }

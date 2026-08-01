@@ -14,6 +14,8 @@ afterEach(() => {
 
 function get_front() {
     const sd = new ScoreDriver()
+    sd.mahalanobis_score.pair.dia_inv_cov[2] = 4
+    sd.mahalanobis_score.pair.dia_inv_cov[3] = 4
     const previous_query_selector = index_fixture.querySelector.bind(index_fixture)
     index_fixture.querySelector = (tag) => {
         const stage_with_mocked_rect = document.createElement('div')
