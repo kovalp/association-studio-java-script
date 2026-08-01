@@ -1,6 +1,12 @@
 # Changelog
 
-## 2.0.0
+## 2.2.0
+
+- Internal refactoring
+- Cyan color for the self-biting arrow.
+
+
+## 2.1.0
 
 - Version number in the About dialog.
 - Fix the MAHA score-card.
