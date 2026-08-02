@@ -1,5 +1,10 @@
 # Changelog
 
+## 4.0.0
+
+- Size-modulated Mahalanobis-based metric (two-yaw-iou-like)
+
+
 ## 3.0.0
 
 - Add chart of the scores (line chart adding a point to GIoU and MAHA curves on every change.)
