@@ -40,8 +40,8 @@ class Frontend {
      */
     set_state(xy_yaw_lw) {
         this.panels.set_state(xy_yaw_lw)
-        const { giou: giou, maha: maha } = this.score_driver.compute_for(xy_yaw_lw)
-        this.chart_driver.update(giou, maha)
+        const { giou, maha, size_mod } = this.score_driver.compute_for(xy_yaw_lw)
+        this.chart_driver.update(giou, maha, size_mod)
         this.panels.set_scores(giou, maha)
         this.panels.set_maha_parameters(this.score_driver.mahalanobis_score.pair)
     }

@@ -1,5 +1,3 @@
-import { MahalanobisBox } from './item.js'
-
 class MahalanobisPair {
     constructor() {
         this.dia_inv_cov = new Float32Array([1.5, 1.5, 2, 2, 1, 1])
@@ -10,20 +8,17 @@ class MahalanobisPair {
     }
 
     /**
-     * @param {MahalanobisBox} b1 - first box
-     * @param {MahalanobisBox} b2 - second box
+     * @param {Float32Array} b1 - first box in xy_cs_lw format
+     * @param {Float32Array} b2 - second box in xy_cs_lw format
      * @return {number} Mahalanobis similarity score (exp(-D^2 /(2 N))), where N = 6 in this case.
      */
     get_score(b1, b2) {
-        const a1 = b1.xy_cs_lw,
-            a2 = b2.xy_cs_lw
-
-        const d0 = a1[0] - a2[0]
-        const d1 = a1[1] - a2[1]
-        const d2 = a1[2] - a2[2]
-        const d3 = a1[3] - a2[3]
-        const d4 = a1[4] - a2[4]
-        const d5 = a1[5] - a2[5]
+        const d0 = b1[0] - b2[0]
+        const d1 = b1[1] - b2[1]
+        const d2 = b1[2] - b2[2]
+        const d3 = b1[3] - b2[3]
+        const d4 = b1[4] - b2[4]
+        const d5 = b1[5] - b2[5]
 
         const s0 = d0 * d0
         const s1 = d1 * d1

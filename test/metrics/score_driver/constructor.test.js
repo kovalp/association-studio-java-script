@@ -9,13 +9,8 @@ describe('constructor', () => {
         expect(sd.mahalanobis_score).toBeInstanceOf(MahalanobisScore)
         expect(sd.iou_score).toBeInstanceOf(AxesIoU)
         expect(sd.ori_state).toBeDeepCloseTo([0.0, 0.0, 0.0, 3.0, 1.5])
-        expect(sd.iou_score.ref).toBeDeepCloseTo({
-            min_x: -1.5,
-            max_x: 1.5,
-            min_y: -0.75,
-            max_y: 0.75,
-            area: 4.5,
-        })
-        expect(sd.mahalanobis_score.ref.xy_cs_lw).toBeDeepCloseTo([0.0, 0.0, 1.0, 0.0, 3.0, 1.5])
+        const ref_attr = { min_x: -1.5, max_x: 1.5, min_y: -0.75, max_y: 0.75, area: 4.5 }
+        expect(sd.iou_score.ref).toBeDeepCloseTo(ref_attr)
+        expect(sd.mahalanobis_score.ref).toBeDeepCloseTo([0.0, 0.0, 1.0, 0.0, 3.0, 1.5])
     })
 })

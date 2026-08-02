@@ -1,6 +1,5 @@
 import { describe, it as baseIt, expect } from 'vitest'
 import { MahalanobisPair } from '@/metrics/mahalanobis/pair'
-import { MahalanobisBox } from '@/metrics/mahalanobis/item'
 
 const it = baseIt.extend({
     mp: async ({}, use) => {
@@ -9,8 +8,8 @@ const it = baseIt.extend({
     },
 
     sampleBoxes: async ({}, use) => {
-        const b1 = new MahalanobisBox([1.1, 2.2, 0.5, 0.866025403785, 3.3, 4.4])
-        const b2 = new MahalanobisBox([1.4, 2.3, 0.866025403785, 0.5, 3.2, 4.1])
+        const b1 = new Float32Array([1.1, 2.2, 0.5, 0.866025403785, 3.3, 4.4])
+        const b2 = new Float32Array([1.4, 2.3, 0.866025403785, 0.5, 3.2, 4.1])
         await use({ b1, b2 })
     },
 })

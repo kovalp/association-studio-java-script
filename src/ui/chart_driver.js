@@ -14,6 +14,7 @@ class ChartDriver {
                 datasets: [
                     { label: 'GIoU', data: [] },
                     { label: 'MAHA', data: [] },
+                    { label: 'SMMA', data: [] },
                 ],
             },
             options: {
@@ -28,12 +29,14 @@ class ChartDriver {
      *
      * @param {number} giou
      * @param {number} maha
+     * @param {number} size_mod
      */
-    update(giou, maha) {
+    update(giou, maha, size_mod) {
         this.chart.data.labels.push(this.num_upd)
         const datasets = this.chart.data.datasets
         datasets[0].data.push(giou)
         datasets[1].data.push(maha)
+        datasets[2].data.push(size_mod)
         if (datasets[0].data.length > this.max_length) {
             this.shift()
         }
@@ -45,6 +48,7 @@ class ChartDriver {
         this.chart.data.labels.shift()
         this.chart.data.datasets[0].data.shift()
         this.chart.data.datasets[1].data.shift()
+        this.chart.data.datasets[2].data.shift()
     }
 }
 

@@ -1,30 +1,27 @@
-import { MahalanobisBox } from './item'
 import { MahalanobisPair } from './pair'
-
-function get_mah_state(xy_yaw_lw) {
-    return [
-        xy_yaw_lw[0],
-        xy_yaw_lw[1],
-        Math.cos(xy_yaw_lw[2]),
-        Math.sin(xy_yaw_lw[2]),
-        xy_yaw_lw[3],
-        xy_yaw_lw[4],
-    ]
-}
+import { yaw_to_cs } from '@/metrics/yaw_conversion.js'
 
 class MahalanobisScore {
     constructor() {
-        this.ref = new MahalanobisBox([0.0, 0.0, 1.0, 0.0, 3.0, 1.5])
-        this.probe = new MahalanobisBox([0.0, 0.0, 1.0, 0.0, 3.0, 1.5])
+        this.ref = new Float32Array([0.0, 0.0, 1.0, 0.0, 3.0, 1.5])
+        this.probe = new Float32Array([0.0, 0.0, 1.0, 0.0, 3.0, 1.5])
         this.pair = new MahalanobisPair()
     }
 
+    /**
+     *
+     * @param {Float32Array | Array<Number>} xy_yaw_lw
+     */
     set_ref(xy_yaw_lw) {
-        this.ref.set_state(get_mah_state(xy_yaw_lw))
+        yaw_to_cs(xy_yaw_lw, this.ref)
     }
 
+    /**
+     *
+     * @param {Float32Array | Array<Number>} xy_yaw_lw
+     */
     compute_for(xy_yaw_lw) {
-        this.probe.set_state(get_mah_state(xy_yaw_lw))
+        yaw_to_cs(xy_yaw_lw, this.probe)
         return this.pair.get_score(this.ref, this.probe)
     }
 
@@ -46,4 +43,4 @@ class MahalanobisScore {
     }
 }
 
-export { MahalanobisScore, get_mah_state }
+export { MahalanobisScore }
