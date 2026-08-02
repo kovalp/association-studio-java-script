@@ -6,8 +6,7 @@ describe('the constructor', () => {
         const { menu } = get_menu()
         expect(menu.main_menu_btn).toBeInstanceOf(HTMLButtonElement)
         expect(menu.main_menu_div).toBeInstanceOf(HTMLDivElement)
-        expect(menu.action_callback_map['main-menu-keyboard-shortcuts']).toBeInstanceOf(Function)
-        expect(menu.action_callback_map['main-menu-about']).toBeInstanceOf(Function)
+        expect(menu.action_callback_map).toEqual({})
         expect(menu.main_menu_div.classList.contains('hidden')).toBe(true) // this comes from HTML, not JS
     })
 

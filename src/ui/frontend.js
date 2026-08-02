@@ -4,7 +4,8 @@ import { ScoreDriver } from '@/metrics/score_driver.js'
 import { MainMenu } from '@/ui/main_menu.js'
 import { version } from '@/../package.json'
 import { add_inp_listeners } from './inp_listeners_tool_panels.js'
-import Chart from 'chart.js/auto'
+import { ChartDriver } from './chart_driver.js'
+import { DivVisibility } from './div_visibility.js'
 
 class Frontend {
     /**
@@ -12,22 +13,7 @@ class Frontend {
      * @param {Document | HTMLElement} root
      **/
     constructor(score_driver, root) {
-        this.chart = new Chart(root.querySelector('#plot-scores'), {
-            type: 'line',
-            data: {
-                labels: [],
-                datasets: [
-                    { label: 'GIoU', data: [] },
-                    { label: 'MAHA', data: [] },
-                ],
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-            },
-        })
-        this.num_upd = 0
-
+        this.chart_driver = new ChartDriver(root.querySelector('#plot-scores'))
         this.score_driver = score_driver
         this.ini_state = [0.5, -0.5, 0.0, 3.0, 1.5]
         const canvas_bg = root.querySelector('#stage-bg')
@@ -45,7 +31,8 @@ class Frontend {
         window.addEventListener('resize', this.resize_canvas_callback.bind(this))
         this.resize_canvas_callback()
         root.querySelector('#version-number').innerHTML = version
-        this.main_menu = new MainMenu(root)
+        new MainMenu(root)
+        new DivVisibility(root, '#main-menu-chart-chk-box', '#chart-container')
     }
 
     /**
@@ -54,16 +41,7 @@ class Frontend {
     set_state(xy_yaw_lw) {
         this.panels.set_state(xy_yaw_lw)
         const { giou: giou, maha: maha } = this.score_driver.compute_for(xy_yaw_lw)
-        this.chart.data.labels.push(this.num_upd)
-        this.chart.data.datasets[0].data.push(giou)
-        this.chart.data.datasets[1].data.push(maha)
-        if (this.chart.data.datasets[0].data.length > 345) {
-            this.chart.data.labels.shift()
-            this.chart.data.datasets[0].data.shift()
-            this.chart.data.datasets[1].data.shift()
-        }
-        this.chart.update('none')
-        this.num_upd += 1
+        this.chart_driver.update(giou, maha)
         this.panels.set_scores(giou, maha)
         this.panels.set_maha_parameters(this.score_driver.mahalanobis_score.pair)
     }

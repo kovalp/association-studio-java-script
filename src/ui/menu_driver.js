@@ -9,10 +9,7 @@ class MenuDriver {
         this.main_menu_div.addEventListener('click', this.div_click.bind(this))
         root.addEventListener('keydown', this.keydown_listener.bind(this))
         root.addEventListener('click', this.close_div.bind(this))
-        this.action_callback_map = {
-            'main-menu-keyboard-shortcuts': () => {},
-            'main-menu-about': () => {},
-        }
+        this.action_callback_map = {}
     }
 
     div_click(event) {

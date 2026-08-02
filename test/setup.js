@@ -47,6 +47,7 @@ index_fixture.innerHTML = `
     </dialog>
     
     <div class="chart-container"><canvas id="plot-scores"></canvas></div>
+    <input id="main-menu-chart-chk-box" type="checkbox">
 `
 
 export { index_fixture }

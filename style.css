@@ -319,12 +319,14 @@ kbd {
     color: greenyellow;
 }
 
-.chart-container {
+#chart-container {
     position: relative;
     grid-column: 2;
     grid-row: 2 / span 2;
     width: 100%;
-    height: 33%;
+    height: 25%;
+    display: none;
+    z-index: 3;
 }
 
 #stage {
