@@ -35,6 +35,7 @@ index_fixture.innerHTML = `
     <div id="main-menu-div">
         <div id="main-menu-about">About...</div>
         <div id="main-menu-keyboard-shortcuts">Keyboard shortcuts...</div>
+        <input id="main-menu-chart-chk-box" type="checkbox">
     </div>
     
     <dialog id="keyboard-shortcuts-modal">
@@ -47,7 +48,6 @@ index_fixture.innerHTML = `
     </dialog>
     
     <div class="chart-container"><canvas id="plot-scores"></canvas></div>
-    <input id="main-menu-chart-chk-box" type="checkbox">
 `
 
 export { index_fixture }

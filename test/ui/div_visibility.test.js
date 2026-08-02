@@ -1,8 +1,8 @@
-import {describe, it, expect} from "vitest"
-import { DivVisibility} from "@/ui/div_visibility.js"
+import { describe, it, expect } from 'vitest'
+import { DivVisibility } from '@/ui/div_visibility.js'
 
-function get_c(){
-    const root = document.createElement("div")
+function get_c() {
+    const root = document.createElement('div')
     root.innerHTML = `
         <div id="ctrl-div" style="display: none"></div>
         <input id="chk-box" type="checkbox">

@@ -16,4 +16,4 @@ class DivVisibility {
     }
 }
 
-export {DivVisibility}
+export { DivVisibility }

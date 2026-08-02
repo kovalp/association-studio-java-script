@@ -1,4 +1,4 @@
-import Chart from "chart.js/auto";
+import Chart from 'chart.js/auto'
 
 class ChartDriver {
     /**
@@ -12,8 +12,8 @@ class ChartDriver {
             data: {
                 labels: [],
                 datasets: [
-                    {label: 'GIoU', data: []},
-                    {label: 'MAHA', data: []},
+                    { label: 'GIoU', data: [] },
+                    { label: 'MAHA', data: [] },
                 ],
             },
             options: {
@@ -41,11 +41,11 @@ class ChartDriver {
         this.num_upd += 1
     }
 
-    shift(){
+    shift() {
         this.chart.data.labels.shift()
         this.chart.data.datasets[0].data.shift()
         this.chart.data.datasets[1].data.shift()
     }
 }
 
-export {ChartDriver}
+export { ChartDriver }
