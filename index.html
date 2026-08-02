@@ -7,8 +7,8 @@
             content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
         />
         <title>Association score demo.</title>
-      <script type="module" crossorigin src="/association-studio-java-script/assets/index-BJIDaalf.js"></script>
-      <link rel="stylesheet" crossorigin href="/association-studio-java-script/assets/index-BsOoDktj.css">
+      <script type="module" crossorigin src="/association-studio-java-script/assets/index-BCYG-Or8.js"></script>
+      <link rel="stylesheet" crossorigin href="/association-studio-java-script/assets/index-BjztQnZf.css">
     </head>
 
     <dialog id="keyboard-shortcuts-modal" class="modal">
@@ -129,6 +129,10 @@
                         <div class="menu-item" id="main-menu-about">About...</div>
                         <div class="menu-item" id="main-menu-keyboard-shortcuts">
                             Keyboard shortcuts...
+                        </div>
+                        <div class="menu-item">
+                            <label for="main-menu-chart-chk-box">Show chart</label>
+                            <input id="main-menu-chart-chk-box" type="checkbox" />
                         </div>
                     </div>
                 </div>
@@ -257,7 +261,9 @@
                 <canvas id="stage-bg" width="640" height="320"></canvas>
             </div>
 
-            <!--- <div class="plot" id="plot-scores">.</div> --->
+            <div class="chart-container" id="chart-container">
+                <canvas id="plot-scores"></canvas>
+            </div>
         </div>
 
     </body>
