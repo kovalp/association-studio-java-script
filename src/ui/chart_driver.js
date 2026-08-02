@@ -1,4 +1,31 @@
-import Chart from 'chart.js/auto'
+// below I am using the stripped-down imports
+// to import all
+// import Chart from 'chart.js/auto'
+
+import {
+    Chart,
+    LineController,
+    LineElement,
+    PointElement,
+    LinearScale,
+    CategoryScale,
+    Legend,
+    Tooltip,
+    Colors,
+    Decimation,
+} from 'chart.js'
+
+Chart.register(
+    Legend,
+    Tooltip,
+    Colors,
+    Decimation,
+    LineController,
+    LineElement,
+    PointElement,
+    LinearScale,
+    CategoryScale,
+)
 
 class ChartDriver {
     /**
