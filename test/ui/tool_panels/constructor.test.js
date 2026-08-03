@@ -7,6 +7,7 @@ describe('Constructor of the ToolPanels', () => {
         expect(tp.reset_btn).toBeInstanceOf(HTMLElement)
         expect(tp.score_val1).toBeInstanceOf(HTMLElement)
         expect(tp.score_val2).toBeInstanceOf(HTMLElement)
+        expect(tp.score_val3).toBeInstanceOf(HTMLElement)
         expect(tp.inp_x).toBeInstanceOf(HTMLElement)
         expect(tp.inp_y).toBeInstanceOf(HTMLElement)
         expect(tp.inp_yaw).toBeInstanceOf(HTMLElement)

@@ -6,6 +6,7 @@ fixture.innerHTML = `
             <button id="reset-btn"></button>
             <span id="score-val1">1</span>
             <span id="score-val2">2</span>
+            <span id="score-val3">2</span>
             <input id="explain-mahalanobis-chk-box" type="checkbox">
             <div id="explain-mahalanobis-panel"></div>
             <input id="inp-x" type="number">

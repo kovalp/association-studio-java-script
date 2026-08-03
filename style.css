@@ -149,11 +149,19 @@ input[type='number'] {
 }
 
 #score-val1 {
-    color: #f96;
+    color: #f16;
 }
 
 #score-val2 {
-    color: #89f;
+    color: #a6f;
+}
+
+.explain-maha {
+    color: #a6f !important;
+}
+
+#score-val3 {
+    color: #fd6;
 }
 
 #orientation-warning {

@@ -3,6 +3,7 @@ class ToolPanels {
         this.reset_btn = root.querySelector('#reset-btn')
         this.score_val1 = root.querySelector('#score-val1')
         this.score_val2 = root.querySelector('#score-val2')
+        this.score_val3 = root.querySelector('#score-val3')
         this.inp_x = root.querySelector('#inp-x')
         this.inp_y = root.querySelector('#inp-y')
         this.inp_yaw = root.querySelector('#inp-yaw')
@@ -49,9 +50,10 @@ class ToolPanels {
         inp.dispatchEvent(new Event('change', { bubbles: true }))
     }
 
-    set_scores(val1, val2) {
+    set_scores(val1, val2, val3) {
         this.score_val1.textContent = val1.toFixed(5)
         this.score_val2.textContent = val2.toFixed(5)
+        this.score_val3.textContent = val3.toFixed(5)
     }
 
     set_state(xy_yaw_lw) {
