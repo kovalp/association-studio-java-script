@@ -7,8 +7,8 @@
             content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
         />
         <title>Association score demo.</title>
-      <script type="module" crossorigin src="/association-studio-java-script/assets/index-BCYG-Or8.js"></script>
-      <link rel="stylesheet" crossorigin href="/association-studio-java-script/assets/index-BjztQnZf.css">
+      <script type="module" crossorigin src="/association-studio-java-script/assets/index-FzQhSsA2.js"></script>
+      <link rel="stylesheet" crossorigin href="/association-studio-java-script/assets/index-BS_-lu3U.css">
     </head>
 
     <dialog id="keyboard-shortcuts-modal" class="modal">
@@ -41,6 +41,10 @@
             <ul>
                 <li>GIoU: generalized intersection over union</li>
                 <li>MAHA: Gaussian of the Mahalanobis-distance with static diagonal covariance</li>
+                <li>
+                    SAMA: Exponential decay the Mahalanobis-distance with Size-Modulated diagonal
+                    covariance
+                </li>
             </ul>
         </div>
         <div class="version">Version <span id="version-number">2.0.0</span></div>
@@ -143,17 +147,41 @@
                 <button id="reset-btn">Reset</button>
 
                 <div class="score-card">
-                    <span class="score-title" style="color: #f16">GIoU</span>
+                    <span
+                        class="score-title"
+                        style="color: #f16"
+                        title="Generalized Intersection over Union"
+                        >GIoU</span
+                    >
                     <span class="score-value" id="score-val1" title="Axes-aligned GIoU">0.00</span>
                 </div>
 
                 <div class="score-card">
-                    <span class="score-title" style="color: #a6f">Maha</span>
-                    <span class="score-value" id="score-val2" title="Mahalanobis">0.00</span>
+                    <span class="score-title" style="color: #a6f" title="Mahalanobis">Maha</span>
+                    <span
+                        class="score-value"
+                        id="score-val2"
+                        title="Mahalanobis distance in Gaussian"
+                        >0.00</span
+                    >
                     <div class="input-group">
-                        <label for="explain-mahalanobis-chk-box">explain ⓘ</label>
+                        <label for="explain-mahalanobis-chk-box" class="explain-maha"
+                            >explain ⓘ</label
+                        >
                         <input type="checkbox" id="explain-mahalanobis-chk-box" />
                     </div>
+                </div>
+
+                <div class="score-card">
+                    <span class="score-title" style="color: #fd6" title="Size-modulated Mahalanobis"
+                        >SMMA</span
+                    >
+                    <span
+                        class="score-value"
+                        id="score-val3"
+                        title="Size-modulated Mahalanobis in exponential decay"
+                        >0.00</span
+                    >
                 </div>
 
                 <!-- Explanatory panel -->
