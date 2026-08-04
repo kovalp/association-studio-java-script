@@ -6,6 +6,7 @@ import { version } from '@/../package.json'
 import { add_inp_listeners } from './inp_listeners_tool_panels.js'
 import { ChartDriver } from './chart_driver.js'
 import { DivVisibility } from './div_visibility.js'
+import { AppSettings } from '@/app_settings.js'
 
 class Frontend {
     /**
@@ -13,7 +14,9 @@ class Frontend {
      * @param {Document | HTMLElement} root
      **/
     constructor(score_driver, root) {
+        this.settings = new AppSettings()
         this.chart_driver = new ChartDriver(root.querySelector('#plot-scores'))
+
         this.score_driver = score_driver
         this.ini_state = [0.5, -0.5, 0.0, 3.0, 1.5]
         const canvas_bg = root.querySelector('#stage-bg')
@@ -32,7 +35,8 @@ class Frontend {
         this.resize_canvas_callback()
         root.querySelector('#version-number').innerHTML = version
         new MainMenu(root)
-        new DivVisibility(root, '#main-menu-chart-chk-box', '#chart-container')
+        this.chart_visibility = new DivVisibility(root, '#main-menu-chart-chk-box', '#chart-container')
+
     }
 
     /**
