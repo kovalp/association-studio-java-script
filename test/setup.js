@@ -48,7 +48,7 @@ index_fixture.innerHTML = `
         <span id="version-number"></span>
     </dialog>
     
-    <div class="chart-container"><canvas id="plot-scores"></canvas></div>
+    <div class="chart-container" id="chart-container"><canvas id="plot-scores"></canvas></div>
 `
 
 export { index_fixture }
