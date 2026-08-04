@@ -1,5 +1,9 @@
 # Changelog
 
+## 4.1.0
+
+- Chart visibility is saved/restored from local storage.
+
 ## 4.0.0
 
 - Size-modulated Mahalanobis-based metric (two-yaw-iou-like)
