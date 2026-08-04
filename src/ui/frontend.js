@@ -36,7 +36,8 @@ class Frontend {
         root.querySelector('#version-number').innerHTML = version
         new MainMenu(root)
         this.chart_visibility = new DivVisibility(root, '#main-menu-chart-chk-box', '#chart-container')
-
+        this.chart_visibility.restore_state(this.settings.is_chart_shown)
+        this.chart_visibility.save_state_callback = this.settings.save_chart_visibility.bind(this.settings)
     }
 
     /**
