@@ -29,7 +29,6 @@ class DivVisibility {
     update_style() {
         this.div.style.display = this.chk_box.checked ? 'block' : 'none'
     }
-
 }
 
 export { DivVisibility }
