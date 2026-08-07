@@ -7,6 +7,7 @@ import { add_inp_listeners } from './inp_listeners_tool_panels.js'
 import { ChartDriver } from './chart_driver.js'
 import { DivVisibility } from './div_visibility.js'
 import { AppSettings } from '@/app_settings.js'
+import { ScatterPlot } from '@/ui/scatter_plot.js'
 
 class Frontend {
     /**
@@ -16,6 +17,7 @@ class Frontend {
     constructor(score_driver, root) {
         this.settings = new AppSettings()
         this.chart_driver = new ChartDriver(root.querySelector('#plot-scores'))
+        this.scatter_plot = new ScatterPlot(root.querySelector('#scatter-scores'))
 
         this.score_driver = score_driver
         this.ini_state = [0.5, -0.5, 0.0, 3.0, 1.5]
@@ -35,15 +37,9 @@ class Frontend {
         this.resize_canvas_callback()
         root.querySelector('#version-number').innerHTML = version
         new MainMenu(root)
-        this.chart_visibility = new DivVisibility(
-            root,
-            '#main-menu-chart-chk-box',
-            '#chart-container',
-        )
-        this.chart_visibility.restore_state(this.settings.is_chart_shown)
-        this.chart_visibility.save_state_callback = this.settings.save_chart_visibility.bind(
-            this.settings,
-        )
+        this.chart_vis = new DivVisibility(root, '#main-menu-chart-chk-box', '#chart-container')
+        this.chart_vis.restore_state(this.settings.is_chart_shown)
+        this.chart_vis.save_state_callback = this.settings.save_chart_vis.bind(this.settings)
     }
 
     /**
@@ -53,6 +49,7 @@ class Frontend {
         this.panels.set_state(xy_yaw_lw)
         const { giou, maha, size_mod } = this.score_driver.compute_for(xy_yaw_lw)
         this.chart_driver.update(giou, maha, size_mod)
+        this.scatter_plot.update(giou, maha)
         this.panels.set_scores(giou, maha, size_mod)
         this.panels.set_maha_parameters(this.score_driver.mahalanobis_score.pair)
     }

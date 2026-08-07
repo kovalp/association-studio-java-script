@@ -7,7 +7,7 @@ class AppSettings {
      *
      * @param {Boolean} is_chart_shown
      */
-    save_chart_visibility(is_chart_shown) {
+    save_chart_vis(is_chart_shown) {
         localStorage.setItem('show-chart', is_chart_shown ? 'true' : 'false')
     }
 }

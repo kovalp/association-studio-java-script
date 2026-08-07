@@ -1,5 +1,13 @@
 # Changelog
 
+## 5.0.0
+
+- Add scatter plotting of the scores.
+
+## 4.1.1
+
+- Update dependencies.
+
 ## 4.1.0
 
 - Chart visibility is saved/restored from local storage.

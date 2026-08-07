@@ -49,6 +49,7 @@ index_fixture.innerHTML = `
     </dialog>
     
     <div class="chart-container" id="chart-container"><canvas id="plot-scores"></canvas></div>
+    <div class="chart-container" id="scatter-container"><canvas id="scatter-scores"></canvas></div>
 `
 
 export { index_fixture }
