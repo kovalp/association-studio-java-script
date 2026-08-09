@@ -1,45 +1,38 @@
 import { ToolPanels } from '@/ui/tool_panels.js'
-import { BoxBackend } from '@/ui/box_backend.js'
+import { BoxUi } from '@/ui/box_ui.js'
 import { ScoreDriver } from '@/metrics/score_driver.js'
 import { MainMenu } from '@/ui/main_menu.js'
 import { version } from '@/../package.json'
 import { add_inp_listeners } from './inp_listeners_tool_panels.js'
-import { ChartDriver } from './chart_driver.js'
-import { DivVisibility } from './div_visibility.js'
 import { AppSettings } from '@/app_settings.js'
-import { ScatterPlot } from '@/ui/scatter_plot.js'
+import { ChartsDriver } from '@/ui/plots/charts_driver.js'
 
 class Frontend {
     /**
-     * @param {ScoreDriver} score_driver
+     * @param {ScoreDriver} score_drv
      * @param {Document | HTMLElement} root
      **/
-    constructor(score_driver, root) {
-        this.settings = new AppSettings()
-        this.chart_driver = new ChartDriver(root.querySelector('#plot-scores'))
-        this.scatter_plot = new ScatterPlot(root.querySelector('#scatter-scores'))
+    constructor(score_drv, root) {
+        this.score_drv = score_drv
+        root.querySelector('#version-number').innerHTML = version
 
-        this.score_driver = score_driver
+        const settings = new AppSettings()
+        this.charts_driver = new ChartsDriver(root, settings)
+
         this.ini_state = [0.5, -0.5, 0.0, 3.0, 1.5]
-        const canvas_bg = root.querySelector('#stage-bg')
-        this.back_bg = new BoxBackend(canvas_bg, '#00fa', score_driver.ori_state)
-        const canvas_ui = root.querySelector('#stage-ui')
-        this.back_ui = new BoxBackend(canvas_ui, '#f0fa', this.ini_state)
+        this.ref = new BoxUi(root.querySelector('#stage-bg'), '#00fa', score_drv.ori_state)
+        this.probe = new BoxUi(root.querySelector('#stage-ui'), '#f0fa', this.ini_state)
         this.panels = new ToolPanels(root)
-        this.back_ui.set_change_state_callback(this.set_state.bind(this))
+        this.probe.set_change_state_callback(this.set_state.bind(this))
 
-        add_inp_listeners(this.panels, this.back_ui)
+        add_inp_listeners(this.panels, this.probe)
         this.panels.reset_btn.addEventListener('click', this.reset.bind(this))
         this.add_inp_listeners_precision()
 
         this.stage = root.querySelector('#stage')
         window.addEventListener('resize', this.resize_canvas_callback.bind(this))
         this.resize_canvas_callback()
-        root.querySelector('#version-number').innerHTML = version
         new MainMenu(root)
-        this.chart_vis = new DivVisibility(root, '#main-menu-chart-chk-box', '#chart-container')
-        this.chart_vis.restore_state(this.settings.is_chart_shown)
-        this.chart_vis.save_state_callback = this.settings.save_chart_vis.bind(this.settings)
     }
 
     /**
@@ -47,11 +40,10 @@ class Frontend {
      */
     set_state(xy_yaw_lw) {
         this.panels.set_state(xy_yaw_lw)
-        const { giou, maha, size_mod } = this.score_driver.compute_for(xy_yaw_lw)
-        this.chart_driver.update(giou, maha, size_mod)
-        this.scatter_plot.update(giou, maha)
-        this.panels.set_scores(giou, maha, size_mod)
-        this.panels.set_maha_parameters(this.score_driver.mahalanobis_score.pair)
+        const { giou, maha, smma } = this.score_drv.compute_for(xy_yaw_lw)
+        this.charts_driver.update(giou, maha, smma)
+        this.panels.set_scores(giou, maha, smma)
+        this.panels.set_maha_parameters(this.score_drv.get_maha_parameters())
     }
 
     add_inp_listeners_precision() {
@@ -63,18 +55,18 @@ class Frontend {
     }
 
     change_precision(event) {
-        this.score_driver.set_precision(Number(event.target.value), event.target.id)
-        this.set_state(this.back_ui.box.xy_yaw_lw)
+        this.score_drv.set_precision(Number(event.target.value), event.target.id)
+        this.set_state(this.probe.box.xy_yaw_lw)
     }
 
     resize_canvas_callback() {
         const rect = this.stage.getBoundingClientRect()
-        this.back_ui.resize_canvas(rect)
-        this.back_bg.resize_canvas(rect)
+        this.probe.resize_canvas(rect)
+        this.ref.resize_canvas(rect)
     }
 
     reset() {
-        this.back_ui.set_state(this.score_driver.ori_state)
+        this.probe.set_state(this.score_drv.ori_state)
     }
 }
 

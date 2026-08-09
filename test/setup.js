@@ -36,7 +36,11 @@ index_fixture.innerHTML = `
     <div id="main-menu-div">
         <div id="main-menu-about">About...</div>
         <div id="main-menu-keyboard-shortcuts">Keyboard shortcuts...</div>
-        <input id="main-menu-chart-chk-box" type="checkbox">
+        <select id="main-menu-chart-type">
+            <option value="none" selected>None</option>
+            <option value="line" selected>Time series</option>
+            <option value="scatter" selected>Bivariate</option>
+        </select>
     </div>
     
     <dialog id="keyboard-shortcuts-modal">

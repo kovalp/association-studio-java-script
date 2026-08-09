@@ -1,7 +1,7 @@
 import { describe, it, expect, vi } from 'vitest'
 import { get_bb } from './conftest'
 
-describe('BoxBackend change listeners', () => {
+describe('BoxUi change listeners', () => {
     it('should set the position x and draw', () => {
         const { box_back: bb, event } = get_bb()
         bb.change_x(event)

@@ -1,10 +1,10 @@
-import { BoxBackend } from '@/ui/box_backend.js'
+import { BoxUi } from '@/ui/box_ui.js'
 import { ToolPanels } from '@/ui/tool_panels.js'
 
 /**
  *
  * @param {ToolPanels} tool_panels
- * @param {BoxBackend} back_ui
+ * @param {BoxUi} back_ui
  */
 function add_inp_listeners(tool_panels, back_ui) {
     tool_panels.inp_x.addEventListener('change', back_ui.change_x.bind(back_ui))

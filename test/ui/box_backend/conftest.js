@@ -1,6 +1,6 @@
 import { beforeEach, afterEach, vi } from 'vitest'
 import { createCanvas, DOMMatrix, DOMPoint } from 'canvas'
-import { BoxBackend } from '@/ui/box_backend.js'
+import { BoxUi } from '@/ui/box_ui.js'
 import { BoxHelper } from '@/ui/box_helper.js'
 
 beforeEach(() => {
@@ -15,7 +15,7 @@ afterEach(() => {
 function get_bb() {
     const canvas = createCanvas(640, 480)
     canvas.addEventListener = vi.fn()
-    let bb = new BoxBackend(canvas, 'red', [1.0, 2.0, 3.0, 4.0, 5.0])
+    let bb = new BoxUi(canvas, 'red', [1.0, 2.0, 3.0, 4.0, 5.0])
     vi.spyOn(bb, 'draw')
     return {
         box_back: bb,

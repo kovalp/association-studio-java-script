@@ -5,7 +5,7 @@ import { Screen } from '@/ui/screen'
 import { BoxPlot } from '@/ui/box_plot'
 import { get_bb } from './conftest'
 
-describe('BoxBackend constructor', () => {
+describe('BoxUi constructor', () => {
     it('should have the attributes', () => {
         const { box_back: bb, canvas: canvas } = get_bb()
 

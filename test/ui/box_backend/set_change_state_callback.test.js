@@ -1,7 +1,7 @@
 import { describe, it, expect, vi } from 'vitest'
 import { get_bb } from './conftest'
 
-describe('BoxBackend change-state callback setter', () => {
+describe('BoxUi change-state callback setter', () => {
     it('should store & call', () => {
         const { box_back: bb, event: event } = get_bb()
         const callback = vi.fn()

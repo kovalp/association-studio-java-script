@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest'
 import { get_bb, get_bh } from './conftest'
 
-describe('BoxBackend resize canvas method', () => {
+describe('BoxUi resize canvas method', () => {
     it('should correctly update internals and redraw ', () => {
         const { box_back: bb } = get_bb()
         bb.resize_canvas(new DOMRect(0, 0, 800, 600))

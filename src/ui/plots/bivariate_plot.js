@@ -1,39 +1,58 @@
 import Chart from 'chart.js/auto'
 
-class ScatterPlot {
+class BivariatePlot {
     /**
      *
      * @param {HTMLCanvasElement} canvas
      */
     constructor(canvas) {
-        this.max_length = 100
+        this.max_length = 300
         this.chart = new Chart(canvas, {
             type: 'scatter',
             data: {
                 datasets: [
                     {
-                        label: 'Series MAHA vs Series GIoU',
+                        label: '',
                         data: [],
-                        backgroundColor: 'cyan',
-                        pointRadius: 3,
+                        borderColor: '#f16',
+                        backgroundColor: '#f16',
+                        pointRadius: 4,
                         pointHoverRadius: 8,
                     },
                 ],
             },
             options: {
+                aspectRatio: 1, // Forces a 1:1 square canvas
+                maintainAspectRatio: true, // Enforces the aspect ratio
                 scales: {
                     x: {
+                        grid: {
+                            color: '#999', // Grid line color
+                            tickColor: '#999', // Small tick marks on the axis line
+                        },
+                        ticks: {
+                            color: '#999', // Color of numbers (0, 10, 20...)
+                        },
                         type: 'linear',
                         position: 'bottom',
                         title: {
                             display: true,
                             text: 'GIoU',
+                            color: '#f16',
                         },
                     },
                     y: {
+                        grid: {
+                            color: '#999', // Grid line color
+                            tickColor: '#999', // Small tick marks on the axis line
+                        },
                         title: {
                             display: true,
                             text: 'MAHA',
+                            color: '#a6f',
+                        },
+                        ticks: {
+                            color: '#999', // Color of numbers (0, 10, 20...)
                         },
                     },
                 },
@@ -65,4 +84,4 @@ class ScatterPlot {
     }
 }
 
-export { ScatterPlot }
+export { BivariatePlot }

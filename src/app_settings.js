@@ -1,14 +1,15 @@
 class AppSettings {
     constructor() {
-        this.is_chart_shown = localStorage.getItem('show-chart') === 'true'
+        const ct = localStorage.getItem('chart-type')
+        this.chart_type = ct ? ct : 'none'
     }
 
     /**
      *
-     * @param {Boolean} is_chart_shown
+     * @param {String} chart_type
      */
-    save_chart_vis(is_chart_shown) {
-        localStorage.setItem('show-chart', is_chart_shown ? 'true' : 'false')
+    save_chart_type(chart_type) {
+        localStorage.setItem('chart-type', chart_type)
     }
 }
 

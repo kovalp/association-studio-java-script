@@ -1,7 +1,7 @@
 import { describe, it, expect, vi } from 'vitest'
 import { get_bb } from './conftest'
 
-describe('BoxBackend upd_in_flags method', () => {
+describe('BoxUi upd_in_flags method', () => {
     it('should update this.box.data_xy & in flags', () => {
         const { box_back: bb, event: event } = get_bb()
         Object.assign(event, { offsetX: 123, offsetY: 456 })

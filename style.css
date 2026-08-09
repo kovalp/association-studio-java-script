@@ -156,12 +156,12 @@ input[type='number'] {
     color: #a6f;
 }
 
-.explain-maha {
-    color: #a6f !important;
-}
-
 #score-val3 {
     color: #fd6;
+}
+
+.explain-maha {
+    color: #c6f !important;
 }
 
 #orientation-warning {
@@ -341,10 +341,19 @@ kbd {
     position: relative;
     grid-column: 2;
     grid-row: 2 / span 2;
-    width: 100%;
-    height: 25%;
+    width: 35%;
+    height: 35%;
     display: none;
     z-index: 3;
+}
+
+#scatter-scores {
+    z-index: 6 !important;
+}
+
+#select-pair-scatter {
+    position: absolute;
+    z-index: 7 !important;
 }
 
 #stage {

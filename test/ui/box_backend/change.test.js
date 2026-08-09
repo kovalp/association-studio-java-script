@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest'
 import { get_bb, get_bh } from './conftest'
 
-describe('BoxBackend change method', () => {
+describe('BoxUi change method', () => {
     it('should call translate in the box helper if the pointer is in the box', () => {
         const { box_back: bb } = get_bb()
         bb.is_in_box = true

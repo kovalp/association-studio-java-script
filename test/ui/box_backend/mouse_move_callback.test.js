@@ -1,7 +1,7 @@
 import { describe, it, expect, vi } from 'vitest'
 import { get_bb, get_bh } from './conftest'
 
-describe('BoxBackend mouse_move callback', () => {
+describe('BoxUi mouse_move callback', () => {
     it('should change this.box if dragging', () => {
         const { box_back: bb, event: event } = get_bb()
         const bh = get_bh()

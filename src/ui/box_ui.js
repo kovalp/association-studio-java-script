@@ -4,7 +4,7 @@ import { Screen } from './screen'
 import { get_cursor } from './mouse_cursor'
 import { get_angle } from '@/rotations'
 
-class BoxBackend {
+class BoxUi {
     /**
      * @param {HTMLCanvasElement} canvas
      * @param {string} box_style
@@ -142,4 +142,4 @@ class BoxBackend {
     }
 }
 
-export { BoxBackend }
+export { BoxUi }

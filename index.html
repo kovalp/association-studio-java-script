@@ -39,11 +39,8 @@
             <p>Three metrics can be compared:</p>
             <ul>
                 <li>GIoU: generalized intersection over union</li>
-                <li>MAHA: Gaussian of the Mahalanobis-distance with static diagonal covariance</li>
-                <li>
-                    SAMA: Exponential decay of the Mahalanobis-distance with Size-Modulated diagonal
-                    covariance
-                </li>
+                <li>MAHA: Gaussian of the Mahalanobis-distance D with static covariance</li>
+                <li>SAMA: exp(-D) with size-modulated diagonal covariance.</li>
             </ul>
         </div>
         <div class="version">Version <span id="version-number">2.0.0</span></div>
@@ -134,8 +131,12 @@
                             Keyboard shortcuts...
                         </div>
                         <div class="menu-item">
-                            <label for="main-menu-chart-chk-box">Show chart</label>
-                            <input id="main-menu-chart-chk-box" type="checkbox" />
+                            <label for="main-menu-chart-type">Chart type</label>
+                            <select id="main-menu-chart-type">
+                                <option value="none" selected>None</option>
+                                <option value="line" selected>Time series</option>
+                                <option value="scatter" selected>Bivariate</option>
+                            </select>
                         </div>
                     </div>
                 </div>
@@ -293,6 +294,11 @@
             </div>
             <div class="chart-container" id="scatter-container">
                 <canvas id="scatter-scores"></canvas>
+                <select id="select-pair-scatter">
+                    <option>MAHA v GIOU</option>
+                    <option>GIOU v SMMA</option>
+                    <option>SMMA v MAHA</option>
+                </select>
             </div>
         </div>
 

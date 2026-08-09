@@ -1,7 +1,7 @@
 import { describe, it, expect, vi } from 'vitest'
 import { get_bb } from './conftest'
 
-describe('BoxBackend mouse_up callback', () => {
+describe('BoxUi mouse_up callback', () => {
     it('should reset the dragging flag and call change_and_draw', () => {
         const { box_back: bb, event: event } = get_bb()
         bb.is_dragging = true

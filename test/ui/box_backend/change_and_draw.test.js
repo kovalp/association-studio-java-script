@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest'
 import { get_bb, get_bh } from './conftest'
 
-describe('BoxBackend change method', () => {
+describe('BoxUi change method', () => {
     it('should call change and draw', () => {
         const { box_back: bb } = get_bb()
         vi.spyOn(bb, 'change')

@@ -1,15 +1,15 @@
 import { describe, it, expect, vi } from 'vitest'
-import { ChartDriver } from '@/ui/chart_driver.js'
+import { SampleSeries } from '@/ui/plots/sample_series.js'
 import Chart from 'chart.js/auto'
 
 function get_driver() {
     const canvas = document.createElement('canvas')
-    const driver = new ChartDriver(canvas)
+    const driver = new SampleSeries(canvas)
     vi.spyOn(driver.chart, 'update')
     return driver
 }
 
-describe('ChartDriver constructor', () => {
+describe('SampleSeries constructor', () => {
     it('should define the attributes', () => {
         const driver = get_driver()
         expect(driver.chart).toBeInstanceOf(Chart)

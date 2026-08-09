@@ -1,6 +1,6 @@
 import Chart from 'chart.js/auto'
 
-class ChartDriver {
+class SampleSeries {
     /**
      *
      * @param {HTMLCanvasElement} canvas
@@ -52,4 +52,4 @@ class ChartDriver {
     }
 }
 
-export { ChartDriver }
+export { SampleSeries }

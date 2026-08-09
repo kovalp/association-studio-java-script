@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest'
 import { get_bb } from './conftest'
 
-describe('BoxBackend mouse_down callback', () => {
+describe('BoxUi mouse_down callback', () => {
     it('should calculate the in-box flag and start dragging', () => {
         const { box_back: bb } = get_bb()
         expect(bb.is_dragging).toBe(false)
