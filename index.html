@@ -293,12 +293,21 @@
                 <canvas id="plot-scores"></canvas>
             </div>
             <div class="chart-container" id="scatter-container">
+                <div id="scatter-select-axes">
+                    <label for="select-data-x" class="scatter-select-axes-label">x</label>
+                    <select id="select-data-x">
+                        <option selected value="giou">GIoU</option>
+                        <option disabled value="maha">Maha</option>
+                        <option value="smma">SMMa</option>
+                    </select>
+                    <label for="select-data-y" class="scatter-select-axes-label">y</label>
+                    <select id="select-data-y">
+                        <option disabled value="giou">GIoU</option>
+                        <option selected value="maha">Maha</option>
+                        <option value="smma">SMMa</option>
+                    </select>
+                </div>
                 <canvas id="scatter-scores"></canvas>
-                <select id="select-pair-scatter">
-                    <option>MAHA v GIOU</option>
-                    <option>GIOU v SMMA</option>
-                    <option>SMMA v MAHA</option>
-                </select>
             </div>
         </div>
 

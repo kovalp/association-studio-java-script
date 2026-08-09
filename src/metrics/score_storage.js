@@ -1,11 +1,13 @@
 class ScoreStorage {
     constructor() {
-        this.max_num_scores = 300
+        this.max_num_stored = 300
         this.ref_states = []
         this.prb_states = []
         this.giou_scores = []
         this.maha_scores = []
         this.smma_scores = []
+        this.current_idx = 0
+        this.sample_idx = []
     }
 
     /**
@@ -17,18 +19,21 @@ class ScoreStorage {
      * smma -- Mahalanobis distance with size-modulated covariance in Exponential function exp(-D)
      */
     store(ref_state, prb_state, scores) {
+        this.sample_idx.push(this.current_idx)
+        this.current_idx++
         this.ref_states.push(new Float32Array(ref_state))
         this.prb_states.push(new Float32Array(prb_state))
         this.giou_scores.push(scores.giou)
         this.maha_scores.push(scores.maha)
         this.smma_scores.push(scores.smma)
 
-        if (this.ref_states.length > this.max_num_scores) {
+        if (this.ref_states.length > this.max_num_stored) {
             this.shift()
         }
     }
 
     shift() {
+        this.sample_idx.shift()
         this.ref_states.shift()
         this.prb_states.shift()
         this.giou_scores.shift()

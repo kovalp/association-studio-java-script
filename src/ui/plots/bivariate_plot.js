@@ -1,86 +1,94 @@
 import Chart from 'chart.js/auto'
+import { ScoreStorage } from '@/metrics/score_storage.js'
+import { value_title_map, value_color_map } from './common.js'
 
 class BivariatePlot {
     /**
      *
-     * @param {HTMLCanvasElement} canvas
+     * @param {HTMLElement | Document} root
+     * @param {String} canvas
+     * @param {String} select_x
+     * @param {String} select_y
      */
-    constructor(canvas) {
-        this.max_length = 300
-        this.chart = new Chart(canvas, {
+    constructor(root, canvas, select_x, select_y) {
+        this.storage = new ScoreStorage()
+        this.select_x = root.querySelector(select_x)
+        this.select_y = root.querySelector(select_y)
+        this.select_x.addEventListener('change', this.change_data_x.bind(this))
+        this.select_y.addEventListener('change', this.change_data_y.bind(this))
+
+        this.chart = new Chart(root.querySelector(canvas), {
             type: 'scatter',
             data: {
                 datasets: [
                     {
                         label: '',
                         data: [],
-                        borderColor: '#f16',
+                        borderColor: '#a6f',
                         backgroundColor: '#f16',
                         pointRadius: 4,
+                        borderWidth: 2,
                         pointHoverRadius: 8,
                     },
                 ],
             },
             options: {
-                aspectRatio: 1, // Forces a 1:1 square canvas
-                maintainAspectRatio: true, // Enforces the aspect ratio
+                aspectRatio: 1,
+                maintainAspectRatio: true,
+                plugins: {
+                    legend: { display: false },
+                },
                 scales: {
                     x: {
-                        grid: {
-                            color: '#999', // Grid line color
-                            tickColor: '#999', // Small tick marks on the axis line
-                        },
-                        ticks: {
-                            color: '#999', // Color of numbers (0, 10, 20...)
-                        },
+                        grid: { color: '#999', tickColor: '#999' },
+                        ticks: { color: '#999' },
                         type: 'linear',
                         position: 'bottom',
-                        title: {
-                            display: true,
-                            text: 'GIoU',
-                            color: '#f16',
-                        },
+                        title: { display: true, text: 'GIoU', color: '#f16' },
                     },
                     y: {
-                        grid: {
-                            color: '#999', // Grid line color
-                            tickColor: '#999', // Small tick marks on the axis line
-                        },
-                        title: {
-                            display: true,
-                            text: 'MAHA',
-                            color: '#a6f',
-                        },
-                        ticks: {
-                            color: '#999', // Color of numbers (0, 10, 20...)
-                        },
+                        grid: { color: '#999', tickColor: '#999' },
+                        title: { display: true, text: 'Maha', color: '#a6f' },
+                        ticks: { color: '#999' },
                     },
                 },
             },
         })
-        this.num_upd = 0
+    }
+
+    update() {
+        this.chart.update('none')
     }
 
     /**
-     *
-     * @param {number} giou
-     * @param {number} maha
+     * @param {ScoreStorage} storage
      */
-    update(giou, maha) {
-        this.chart.data.labels.push(this.num_upd)
-        const data = this.chart.data.datasets[0].data
-        data.push({ x: giou, y: maha })
-        if (data.length > this.max_length) {
-            this.shift()
-        }
-
-        this.chart.update('none')
-        this.num_upd += 1
+    set_storage(storage) {
+        this.storage = storage
+        this.chart.data.labels = storage.giou_scores
+        this.chart.data.datasets[0].data = storage.maha_scores
     }
 
-    shift() {
-        const data = this.chart.data.datasets[0].data
-        data.shift()
+    change_data_x(event) {
+        const value = event.target.value
+        const color = value_color_map[value]
+        this.chart.data.labels = this.storage[`${value}_scores`]
+        this.chart.data.datasets[0].backgroundColor = color
+        this.chart.options.scales.x.title.text = value_title_map[value]
+        this.chart.options.scales.x.title.color = color
+        for (let o of this.select_y.options) o.disabled = o.value === value
+        this.update()
+    }
+
+    change_data_y(event) {
+        const value = event.target.value
+        const color = value_color_map[value]
+        this.chart.data.datasets[0].data = this.storage[`${value}_scores`]
+        this.chart.data.datasets[0].borderColor = color
+        this.chart.options.scales.y.title.text = value_title_map[value]
+        this.chart.options.scales.y.title.color = color
+        for (let o of this.select_x.options) o.disabled = o.value === value
+        this.update()
     }
 }
 

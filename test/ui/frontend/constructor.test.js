@@ -17,7 +17,7 @@ function change_and_dispatch(inp, value) {
 describe('constructor', () => {
     it('defines the attributes', () => {
         let front = get_front()
-        expect(front.score_driver).toBeInstanceOf(ScoreDriver)
+        expect(front.score_drv).toBeInstanceOf(ScoreDriver)
         expect(front.ini_state).toBeDeepCloseTo([0.5, -0.5, 0.0, 3.0, 1.5])
         expect(front.ref).toBeInstanceOf(BoxUi)
         expect(front.probe).toBeInstanceOf(BoxUi)
@@ -44,17 +44,17 @@ describe('constructor', () => {
         expect(front.probe.box.xy_yaw_lw).toBeDeepCloseTo([0.0, 0.0, 0.0, 3.0, 1.5])
 
         change_and_dispatch(front.panels.inp_precision_pos, 2.34)
-        expect(front.score_driver.computer.mahalanobis_score.pair.dia_inv_cov).toBeDeepCloseTo([
+        expect(front.score_drv.computer.mahalanobis_score.pair.dia_inv_cov).toBeDeepCloseTo([
             2.34, 2.34, 4, 4, 1, 1,
         ])
 
         change_and_dispatch(front.panels.inp_precision_yaw, 2.0)
-        expect(front.score_driver.computer.mahalanobis_score.pair.dia_inv_cov).toBeDeepCloseTo([
+        expect(front.score_drv.computer.mahalanobis_score.pair.dia_inv_cov).toBeDeepCloseTo([
             2.34, 2.34, 2, 2, 1, 1,
         ])
 
         change_and_dispatch(front.panels.inp_precision_size, 3.0)
-        expect(front.score_driver.computer.mahalanobis_score.pair.dia_inv_cov).toBeDeepCloseTo([
+        expect(front.score_drv.computer.mahalanobis_score.pair.dia_inv_cov).toBeDeepCloseTo([
             2.34, 2.34, 2, 2, 3, 3,
         ])
 

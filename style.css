@@ -347,13 +347,17 @@ kbd {
     z-index: 3;
 }
 
+#scatter-select-axes {
+    position: relative;
+    z-index: 3;
+}
 #scatter-scores {
-    z-index: 6 !important;
+    position: relative;
+    z-index: 3;
 }
 
-#select-pair-scatter {
-    position: absolute;
-    z-index: 7 !important;
+.scatter-select-axes-label {
+    color: white;
 }
 
 #stage {

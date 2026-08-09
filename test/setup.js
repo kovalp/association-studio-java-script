@@ -53,7 +53,19 @@ index_fixture.innerHTML = `
     </dialog>
     
     <div class="chart-container" id="chart-container"><canvas id="plot-scores"></canvas></div>
-    <div class="chart-container" id="scatter-container"><canvas id="scatter-scores"></canvas></div>
+    <div class="chart-container" id="scatter-container">
+        <select id="select-data-x">
+            <option selected value="giou">GIoU</option>
+            <option disabled value="maha">Maha</option>
+            <option value="smma">SMMa</option>
+        </select>
+        <select id="select-data-y">
+            <option disabled value="giou">GIoU</option>
+            <option selected value="maha">Maha</option>
+            <option value="smma">SMMa</option>
+        </select>
+        <canvas id="scatter-scores"></canvas>
+    </div>
 `
 
 export { index_fixture }

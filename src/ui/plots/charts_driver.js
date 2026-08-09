@@ -1,3 +1,4 @@
+import { ScoreStorage } from '@/metrics/score_storage.js'
 import { SampleSeries } from '@/ui/plots/sample_series.js'
 import { BivariatePlot } from '@/ui/plots/bivariate_plot.js'
 import { VisibilitySwitch } from '@/ui/visibility_switch.js'
@@ -11,7 +12,12 @@ class ChartsDriver {
      */
     constructor(root, settings) {
         this.sample_series = new SampleSeries(root.querySelector('#plot-scores'))
-        this.bivariate_plot = new BivariatePlot(root.querySelector('#scatter-scores'))
+        this.bivariate_plot = new BivariatePlot(
+            root,
+            '#scatter-scores',
+            '#select-data-x',
+            '#select-data-y',
+        )
         this.chart_sw = new VisibilitySwitch(root, '#main-menu-chart-type', {
             none: '#does-not-exist',
             line: '#chart-container',
@@ -23,13 +29,16 @@ class ChartsDriver {
 
     /**
      *
-     * @param {Number} giou
-     * @param {Number} maha
-     * @param {Number} smma
+     * @param {ScoreStorage} storage
      */
-    update(giou, maha, smma) {
-        this.bivariate_plot.update(giou, maha)
-        this.sample_series.update(giou, maha, smma)
+    set_storage(storage) {
+        this.sample_series.set_storage(storage)
+        this.bivariate_plot.set_storage(storage)
+    }
+
+    update() {
+        this.bivariate_plot.update()
+        this.sample_series.update()
     }
 }
 

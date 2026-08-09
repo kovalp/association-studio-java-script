@@ -9,6 +9,7 @@ class AppSettings {
      * @param {String} chart_type
      */
     save_chart_type(chart_type) {
+        this.chart_type = chart_type
         localStorage.setItem('chart-type', chart_type)
     }
 }

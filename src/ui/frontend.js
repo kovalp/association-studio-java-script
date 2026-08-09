@@ -18,6 +18,7 @@ class Frontend {
 
         const settings = new AppSettings()
         this.charts_driver = new ChartsDriver(root, settings)
+        this.charts_driver.set_storage(score_drv.storage)
 
         this.ini_state = [0.5, -0.5, 0.0, 3.0, 1.5]
         this.ref = new BoxUi(root.querySelector('#stage-bg'), '#00fa', score_drv.ori_state)
@@ -41,7 +42,7 @@ class Frontend {
     set_state(xy_yaw_lw) {
         this.panels.set_state(xy_yaw_lw)
         const { giou, maha, smma } = this.score_drv.compute_for(xy_yaw_lw)
-        this.charts_driver.update(giou, maha, smma)
+        this.charts_driver.update()
         this.panels.set_scores(giou, maha, smma)
         this.panels.set_maha_parameters(this.score_drv.get_maha_parameters())
     }
