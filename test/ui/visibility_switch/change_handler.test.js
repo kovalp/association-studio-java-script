@@ -1,7 +1,7 @@
-import { describe, it, expect, vi } from "vitest"
-import { get_vs } from "./conftest.js";
+import { describe, it, expect, vi } from 'vitest'
+import { get_vs } from './conftest.js'
 
-describe("change handler", () => {
+describe('change handler', () => {
     it('should call downstream', () => {
         const vs = get_vs()
         vi.spyOn(vs, 'update_style')

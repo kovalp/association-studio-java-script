@@ -6,9 +6,6 @@ describe('set precision wrapper', () => {
         const sc = new ScoreComputer([0, 0, 0, 3, 1.5])
         vi.spyOn(sc.mahalanobis_score, 'set_precision')
         sc.set_precision(1.23, 'precision-pos')
-        expect(sc.mahalanobis_score.set_precision).toHaveBeenCalledWith(
-            1.23,
-            'precision-pos',
-        )
+        expect(sc.mahalanobis_score.set_precision).toHaveBeenCalledWith(1.23, 'precision-pos')
     })
 })

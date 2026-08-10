@@ -1,4 +1,4 @@
-import {VisibilitySwitch} from "@/ui/visibility_switch.js";
+import { VisibilitySwitch } from '@/ui/visibility_switch.js'
 
 function get_root() {
     const root = document.createElement('div')
@@ -16,15 +16,14 @@ function get_root() {
 
 function get_map() {
     return {
-        'none': "#absent-id-asdr2tr",
-        'line': "#chart-container",
-        'scatter': "#scatter-container"
+        none: '#absent-id-asdr2tr',
+        line: '#chart-container',
+        scatter: '#scatter-container',
     }
 }
 
-function get_vs(){
+function get_vs() {
     return new VisibilitySwitch(get_root(), '#main-menu-chart-type', get_map())
 }
 
 export { get_root, get_map, get_vs }
-

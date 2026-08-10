@@ -1,8 +1,8 @@
 import { describe, it, expect } from 'vitest'
 import { ScoreComputer } from '@/metrics/score_computer.js'
-import { AxesIoU } from "@/metrics/axes/score.js";
-import { SizeModMahaScore } from "@/metrics/size_mod/score.js";
-import { MahalanobisScore } from "@/metrics/mahalanobis/score.js";
+import { AxesIoU } from '@/metrics/axes/score.js'
+import { SizeModMahaScore } from '@/metrics/size_mod/score.js'
+import { MahalanobisScore } from '@/metrics/mahalanobis/score.js'
 
 describe('constructor', () => {
     it('should define the attributes', () => {

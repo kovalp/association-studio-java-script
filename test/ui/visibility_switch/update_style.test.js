@@ -1,7 +1,7 @@
-import { describe, it, expect, vi } from "vitest"
-import { get_vs } from "./conftest.js";
+import { describe, it, expect, vi } from 'vitest'
+import { get_vs } from './conftest.js'
 
-describe("update_style", () => {
+describe('update_style', () => {
     it('set all invisible but one', () => {
         const vs = get_vs()
         vs.update_style()

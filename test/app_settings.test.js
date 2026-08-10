@@ -1,5 +1,5 @@
-import {describe, it, expect, vi} from "vitest";
-import { AppSettings } from "@/app_settings";
+import { describe, it, expect, vi } from 'vitest'
+import { AppSettings } from '@/app_settings'
 
 describe('constructor', () => {
     it('should define the attribute(s) even if they are absent', () => {
@@ -8,11 +8,10 @@ describe('constructor', () => {
     })
 
     it('should read the attribute(s) if they are present', () => {
-        vi.spyOn(Storage.prototype, 'getItem').mockReturnValue('scatter');
+        vi.spyOn(Storage.prototype, 'getItem').mockReturnValue('scatter')
         const settings = new AppSettings()
         expect(settings.chart_type).toEqual('scatter')
     })
-
 })
 
 describe('save_chart_type', () => {

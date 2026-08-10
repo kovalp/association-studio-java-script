@@ -1,8 +1,8 @@
-import { describe, it, expect, vi } from "vitest"
-import { VisibilitySwitch} from "@/ui/visibility_switch.js";
-import { get_root, get_map } from "./conftest.js";
+import { describe, it, expect, vi } from 'vitest'
+import { VisibilitySwitch } from '@/ui/visibility_switch.js'
+import { get_root, get_map } from './conftest.js'
 
-describe("VisibilitySwitch constructor", () => {
+describe('VisibilitySwitch constructor', () => {
     it('should get elements and define the listener', () => {
         const root = get_root()
         const the_map = get_map()
