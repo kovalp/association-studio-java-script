@@ -1,8 +1,8 @@
-import {describe, it, expect} from "vitest"
-import Chart from "chart.js/auto";
-import {get_bp} from "./conftest.js";
+import { describe, it, expect } from 'vitest'
+import Chart from 'chart.js/auto'
+import { get_bp } from './conftest.js'
 
-describe("constructor", () => {
+describe('constructor', () => {
     it('should define the attributes', () => {
         const bp = get_bp()
         expect(bp.select_x).toBeInstanceOf(HTMLSelectElement)

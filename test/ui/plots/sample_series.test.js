@@ -1,7 +1,7 @@
 import { describe, it, expect, vi } from 'vitest'
 import { SampleSeries } from '@/ui/plots/sample_series.js'
 import Chart from 'chart.js/auto'
-import {ScoreStorage} from "@/metrics/score_storage.js";
+import { ScoreStorage } from '@/metrics/score_storage.js'
 
 function get_driver() {
     const driver = new SampleSeries(document.createElement('canvas'))
@@ -34,6 +34,5 @@ describe('the set_storage method', () => {
         expect(data.datasets[0].data === storage.giou_scores).toBe(true)
         expect(data.datasets[1].data === storage.maha_scores).toBe(true)
         expect(data.datasets[2].data === storage.smma_scores).toBe(true)
-
     })
 })

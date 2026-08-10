@@ -1,4 +1,4 @@
-import {BivariatePlot} from "@/ui/plots/bivariate_plot.js";
+import { BivariatePlot } from '@/ui/plots/bivariate_plot.js'
 
 function get_root() {
     const root = document.createElement('div')
@@ -22,4 +22,4 @@ function get_bp() {
     return new BivariatePlot(get_root(), '#scatter-scores', '#select-data-x', '#select-data-y')
 }
 
-export {get_bp}
+export { get_bp }

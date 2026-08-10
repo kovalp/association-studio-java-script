@@ -1,8 +1,8 @@
-import {describe, it, expect} from "vitest"
-import {get_bp} from "./conftest.js";
-import {ScoreStorage} from "@/metrics/score_storage.js";
+import { describe, it, expect } from 'vitest'
+import { get_bp } from './conftest.js'
+import { ScoreStorage } from '@/metrics/score_storage.js'
 
-describe("set_storage", () => {
+describe('set_storage', () => {
     it('should define the attributes', () => {
         const bp = get_bp()
         const storage = new ScoreStorage()
