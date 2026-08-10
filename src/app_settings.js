@@ -1,7 +1,6 @@
 class AppSettings {
     constructor() {
-        const ct = localStorage.getItem('chart-type')
-        this.chart_type = ct ? ct : 'none'
+        this.chart_type = localStorage.getItem('chart-type') ?? 'none'
     }
 
     /**
