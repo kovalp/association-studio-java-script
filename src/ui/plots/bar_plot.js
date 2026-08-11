@@ -29,7 +29,7 @@ class BarPlot {
                     y: {
                         min: 0,
                         max: 1,
-                    }
+                    },
                 },
                 plugins: {
                     legend: {
