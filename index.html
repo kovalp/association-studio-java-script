@@ -127,6 +127,14 @@
                         </div>
                     </button>
                     <div id="main-menu-div" class="main-menu-div hidden">
+                        <div class="menu-item" id="reset-btn" title="Move the probe to origin and scale">Reset</div>
+                        <div class="menu-item">
+                            <label for="main-menu-ref-size" title="Reference size">Ref. size</label>
+                            <select id="main-menu-ref-size">
+                                <option value="1x1">1 by 1</option>
+                                <option value="3x1.5" selected>3 by 1.5</option>
+                            </select>
+                        </div>
                         <div class="menu-item" id="main-menu-about">About...</div>
                         <div class="menu-item" id="main-menu-keyboard-shortcuts">
                             Keyboard shortcuts...
@@ -146,8 +154,6 @@
 
             <!-- Left Panel -->
             <div class="tool-panel" id="left-panel">
-                <button id="reset-btn">Reset</button>
-
                 <div class="score-card">
                     <span
                         class="score-title"

@@ -6,6 +6,7 @@ import { version } from '@/../package.json'
 import { add_inp_listeners } from './inp_listeners_tool_panels.js'
 import { AppSettings } from '@/app_settings.js'
 import { ChartsDriver } from '@/ui/plots/charts_driver.js'
+import {SizeSelect} from "@/ui/size_select.js";
 
 class Frontend {
     /**
@@ -34,6 +35,7 @@ class Frontend {
         window.addEventListener('resize', this.resize_canvas_callback.bind(this))
         this.resize_canvas_callback()
         new MainMenu(root)
+        new SizeSelect(root, this.ref, score_drv, this.set_state.bind(this))
     }
 
     /**

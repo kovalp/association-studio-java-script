@@ -1,5 +1,10 @@
 # Changelog
 
+## 5.3.0
+
+- Control size of the reference box via a select element in the main menu.
+- Move the reset button to the main menu.
+
 ## 5.2.0
 
 - Bar plot of current scores.

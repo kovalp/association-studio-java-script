@@ -12,6 +12,14 @@ class ScoreDriver {
      * @param {Float32Array} xy_yaw_lw
      * @returns {{giou: Number, maha: Number, smma: Number}}
      */
+    set_ref(xy_yaw_lw) {
+        self.computer.set_ref(xy_yaw_lw)
+    }
+
+    /**
+     * @param {Float32Array} xy_yaw_lw
+     * @returns {{giou: Number, maha: Number, smma: Number}}
+     */
     compute_for(xy_yaw_lw) {
         const ret_val = this.computer.compute_for(xy_yaw_lw)
         this.storage.store(this.computer.ref, this.computer.probe, ret_val)
