@@ -71,23 +71,28 @@ class BivariatePlot {
 
     change_data_x(event) {
         const value = event.target.value
-        const color = value_color_map[value]
         this.chart.data.labels = this.storage[`${value}_scores`]
-        this.chart.data.datasets[0].backgroundColor = color
-        this.chart.options.scales.x.title.text = value_title_map[value]
-        this.chart.options.scales.x.title.color = color
-        for (let o of this.select_y.options) o.disabled = o.value === value
-        this.update()
+        this.chart.data.datasets[0].backgroundColor = value_color_map[value]
+        this.change_data(value, this.chart.options.scales.x.title, this.select_y.options)
     }
 
     change_data_y(event) {
         const value = event.target.value
-        const color = value_color_map[value]
         this.chart.data.datasets[0].data = this.storage[`${value}_scores`]
-        this.chart.data.datasets[0].borderColor = color
-        this.chart.options.scales.y.title.text = value_title_map[value]
-        this.chart.options.scales.y.title.color = color
-        for (let o of this.select_x.options) o.disabled = o.value === value
+        this.chart.data.datasets[0].borderColor = value_color_map[value]
+        this.change_data(value, this.chart.options.scales.y.title, this.select_x.options)
+    }
+
+    /**
+     *
+     * @param {String} value
+     * @param {Array<HTMLOptionElement>} options
+     * @param {{text: String, color: String}} title
+     */
+    change_data(value, title, options) {
+        title.text = value_title_map[value]
+        title.color = value_color_map[value]
+        for (let o of options) o.disabled = o.value === value
         this.update()
     }
 }
