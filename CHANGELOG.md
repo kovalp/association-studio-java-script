@@ -1,5 +1,9 @@
 # Changelog
 
+## 5.2.0
+
+- Bar plot of current scores.
+
 ## 5.1.0
 
 - Add the favicon.

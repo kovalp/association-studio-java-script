@@ -52,8 +52,9 @@ index_fixture.innerHTML = `
         <span id="version-number"></span>
     </dialog>
     
-    <div class="chart-container" id="chart-container"><canvas id="plot-scores"></canvas></div>
-    <div class="chart-container" id="scatter-container">
+    <div id="bar-container"><canvas id="bar-scores"></canvas></div>
+    <div id="chart-container"><canvas id="plot-scores"></canvas></div>
+    <div id="scatter-container">
         <select id="select-data-x">
             <option selected value="giou">GIoU</option>
             <option disabled value="maha">Maha</option>

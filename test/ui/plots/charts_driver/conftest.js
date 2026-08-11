@@ -5,9 +5,10 @@ function get_root() {
     const div = document.createElement('div')
     div.innerHTML = `
         <select id="main-menu-chart-type">
-            <option value="none" selected>None</option>
-            <option value="line" selected>Time series</option>
-            <option value="scatter" selected>Bivariate</option>
+            <option value="none">None</option>
+            <option value="line">Time series</option>
+            <option value="scatter">Bivariate</option>
+            <option value="bar">Box</option>
         </select>
         <div id="scatter-container">
             <select id="select-data-x">
@@ -22,9 +23,8 @@ function get_root() {
             </select>
             <canvas id="scatter-scores"></canvas>
         </div>
-        <div id="line-container">
-            <canvas id="plot-scores"></canvas>
-        </div>
+        <div id="line-container"><canvas id="plot-scores"></canvas></div>
+        <div id="bar-container"><canvas id="bar-scores"></canvas></div>
     `
     return div
 }
