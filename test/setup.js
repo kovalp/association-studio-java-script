@@ -34,6 +34,10 @@ index_fixture.innerHTML = `
 
     <button id="main-menu-btn"></button>
     <div id="main-menu-div">
+        <select id="main-menu-ref-size">
+            <option value="1x1">1 by 1</option>
+            <option value="3x1.5" selected>3 by 1.5</option>
+        </select>
         <div id="main-menu-about">About...</div>
         <div id="main-menu-keyboard-shortcuts">Keyboard shortcuts...</div>
         <select id="main-menu-chart-type">

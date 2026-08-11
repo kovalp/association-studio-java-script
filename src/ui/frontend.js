@@ -6,7 +6,7 @@ import { version } from '@/../package.json'
 import { add_inp_listeners } from './inp_listeners_tool_panels.js'
 import { AppSettings } from '@/app_settings.js'
 import { ChartsDriver } from '@/ui/plots/charts_driver.js'
-import {SizeSelect} from "@/ui/size_select.js";
+import { SizeSelect } from '@/ui/size_select.js'
 
 class Frontend {
     /**

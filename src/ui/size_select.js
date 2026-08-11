@@ -1,5 +1,5 @@
-import { BoxUi } from "@/ui/box_ui.js";
-import { ScoreDriver } from "@/metrics/score_driver.js";
+import { BoxUi } from '@/ui/box_ui.js'
+import { ScoreDriver } from '@/metrics/score_driver.js'
 
 class SizeSelect {
     /**
@@ -9,8 +9,8 @@ class SizeSelect {
      * @param {ScoreDriver} score_drv
      */
     constructor(root, ref, score_drv, set_state) {
-        this.value_state_map = {'1x1': [0, 0, 0, 1, 1], '3x1.5': [0, 0, 0, 3, 1.5]}
-        this.select = root.querySelector("#main-menu-ref-size")
+        this.value_state_map = { '1x1': [0, 0, 0, 1, 1], '3x1.5': [0, 0, 0, 3, 1.5] }
+        this.select = root.querySelector('#main-menu-ref-size')
         this.select.onchange = this.change_size.bind(this)
         this.ref = ref
         this.score_drv = score_drv
