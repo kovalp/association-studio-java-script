@@ -25,6 +25,12 @@ class BarPlot {
             options: {
                 responsive: true,
                 maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        min: 0,
+                        max: 1,
+                    }
+                },
                 plugins: {
                     legend: {
                         display: false, // Hide legend since dataset colors vary per bar
