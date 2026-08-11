@@ -36,7 +36,7 @@ export default defineConfig({
                     var: 'Chart',
                     path: 'https://cdn.jsdelivr.net/npm/chart.js@4.5.1/dist/chart.umd.min.js',
                 },
-            ]
-        })
-    ]
+            ],
+        }),
+    ],
 })
