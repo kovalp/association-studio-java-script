@@ -30,13 +30,13 @@ export default defineConfig({
     },
     plugins: [
         cdn({
-        modules: [
-            {
-                name: 'chart.js/auto',
-                var: 'Chart',
-                path: 'https://cdn.jsdelivr.net/npm/chart.js@4.5.1/dist/chart.umd.min.js',
-            },
-        ]
+            modules: [
+                {
+                    name: 'chart.js/auto',
+                    var: 'Chart',
+                    path: 'https://cdn.jsdelivr.net/npm/chart.js@4.5.1/dist/chart.umd.min.js',
+                },
+            ]
         })
     ]
 })
