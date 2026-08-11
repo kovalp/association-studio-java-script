@@ -1,5 +1,4 @@
 import Chart from 'chart.js/auto'
-
 import { ScoreStorage } from '@/metrics/score_storage.js'
 
 class SampleSeries {
