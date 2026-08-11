@@ -1,5 +1,11 @@
 # Changelog
 
+## 5.1.0
+
+- Add the favicon.
+- Consume chart.js directly from CDN, i.e. exclude it from the minified version.
+- Change the page title to Association Studio.
+
 ## 5.0.0
 
 - Add scatter plotting of the scores.
