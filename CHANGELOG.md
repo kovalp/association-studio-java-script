@@ -1,5 +1,9 @@
 # Changelog
 
+## 5.4.0
+
+- Little refactoring of the reference box select control.
+
 ## 5.3.0
 
 - Control size of the reference box via a select element in the main menu.
