@@ -1,7 +1,7 @@
 import { describe, it, expect, vi } from 'vitest'
 import { get_bh } from './conftest.js'
 
-describe('BoxHelper set_state method', () => {
+describe('BoxHelper set_probe method', () => {
     it('should update the box parameters, transform and half_sxy', () => {
         const bh = get_bh()
         const upd_spy = vi.spyOn(bh, 'upd_transform')

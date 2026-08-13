@@ -25,7 +25,7 @@ class Frontend {
         this.ref = new BoxUi(root.querySelector('#stage-bg'), '#00fa', score_drv.ori_state)
         this.probe = new BoxUi(root.querySelector('#stage-ui'), '#f0fa', this.ini_state)
         this.panels = new ToolPanels(root)
-        this.probe.set_change_state_callback(this.set_state.bind(this))
+        this.probe.set_change_state_callback(this.set_probe.bind(this))
 
         add_inp_listeners(this.panels, this.probe)
         this.panels.reset_btn.addEventListener('click', this.reset.bind(this))
@@ -35,13 +35,23 @@ class Frontend {
         window.addEventListener('resize', this.resize_canvas_callback.bind(this))
         this.resize_canvas_callback()
         new MainMenu(root)
-        new SizeSelect(root, this.ref, score_drv, this.set_state.bind(this))
+        new SizeSelect(root.querySelector('#main-menu-ref-size'), this.set_ref.bind(this))
+    }
+
+    /**
+     *
+     * @param {Float32Array} xy_yaw_lw
+     */
+    set_ref(xy_yaw_lw) {
+        this.ref.set_state(xy_yaw_lw)
+        this.score_drv.computer.set_ref(xy_yaw_lw)
+        this.set_probe(this.score_drv.computer.probe)
     }
 
     /**
      * @param {Float32Array} xy_yaw_lw
      */
-    set_state(xy_yaw_lw) {
+    set_probe(xy_yaw_lw) {
         this.panels.set_state(xy_yaw_lw)
         const { giou, maha, smma } = this.score_drv.compute_for(xy_yaw_lw)
         this.charts_driver.update()
@@ -59,7 +69,7 @@ class Frontend {
 
     change_precision(event) {
         this.score_drv.set_precision(Number(event.target.value), event.target.id)
-        this.set_state(this.probe.box.xy_yaw_lw)
+        this.set_probe(this.probe.box.xy_yaw_lw)
     }
 
     resize_canvas_callback() {

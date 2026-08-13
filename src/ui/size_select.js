@@ -1,27 +1,22 @@
-import { BoxUi } from '@/ui/box_ui.js'
-import { ScoreDriver } from '@/metrics/score_driver.js'
-
 class SizeSelect {
     /**
-     *
-     * @param {HTMLElement | Document} root
-     * @param {BoxUi} ref
-     * @param {ScoreDriver} score_drv
+     * Callback for updating reference state.
+     * @callback SetRefCallback
+     * @param {number[]} value - The selected reference state values, e.g., [0, 0, 0, 1, 1]
+     * @returns {void}
      */
-    constructor(root, ref, score_drv, set_state) {
-        this.value_state_map = { '1x1': [0, 0, 0, 1, 1], '3x1.5': [0, 0, 0, 3, 1.5] }
-        this.select = root.querySelector('#main-menu-ref-size')
-        this.select.onchange = this.change_size.bind(this)
-        this.ref = ref
-        this.score_drv = score_drv
-        this.set_state = set_state
-    }
 
-    change_size(event) {
-        const ref_state = this.value_state_map[event.target.value]
-        this.ref.set_state(ref_state)
-        this.score_drv.computer.set_ref(ref_state)
-        this.set_state(this.score_drv.computer.probe)
+    /**
+     *
+     * @param {HTMLSelectElement} select
+     * @param {SetRefCallback} set_state
+     */
+    constructor(select, set_state) {
+        this.value_state_map = { '1x1': [0, 0, 0, 1, 1], '3x1.5': [0, 0, 0, 3, 1.5] }
+        this.select = select
+        this.select.onchange = (e) => {
+            set_state(this.value_state_map[e.target.value])
+        }
     }
 }
 

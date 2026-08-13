@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest'
 import { get_tp } from './conftest'
 
-describe('set_state method', () => {
+describe('set_probe method', () => {
     it('updates the values in the state vector inputs  ', () => {
         const tp = get_tp()
         tp.set_state([0.1, 0.2, 0.3, 1.3, 1.4])

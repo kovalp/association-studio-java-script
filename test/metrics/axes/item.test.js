@@ -15,7 +15,7 @@ describe('AxesBox constructor', () => {
     })
 })
 
-describe('AxesBox set_state method', () => {
+describe('AxesBox set_probe method', () => {
     it('should compute min-max x-y attributes', ({ box }) => {
         box.set_state([5.0, 6.0, 7.0, 8.0])
         expect(box.area).toBeCloseTo(56.0)
